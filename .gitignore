@@ -1,0 +1,16 @@
+.vs/
+*/Configs/*/*
+*/extensions/*/*.cpp
+*/extensions/*/*.dll
+*/Release/
+Release/
+export/*.gmez
+export/*.png
+export/*.gmz
+*.sdf
+help.rtf
+/GOG.gml/GOG.gml.APS
+/GOG.gml.VC.db
+/GOG/
+/GOG.gml.gmx/datafiles/GOG.gml.html
+/GOG.gml.gmx/datafiles/live.js

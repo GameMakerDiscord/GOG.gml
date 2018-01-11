@@ -1,0 +1,283 @@
+<html><head>
+<meta charset="UTF-8">
+<title>GOG.gml cheat sheet</title>
+<style type="text/css">
+html {
+	background-color: #f9f9f9;
+}
+body, #doc tt {
+	font: 15px 'Open Sans', sans-serif;
+	line-height: 1.35;
+}
+body {
+	max-width: 640px;
+	background: #ffffff;
+	margin: 0 auto;
+	padding: 8px;
+	box-shadow: 0 0 0 2px #eee;
+}
+
+#doc, #doc ul {
+	padding-left: 0;
+	margin: 0;
+}
+#doc div ul, #doc div ol {
+	padding-left: 20px;
+}
+#doc div ul li {
+	list-style: disc;
+	list-style-image: url('data:image/svg+xml;base256,<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="1em" viewBox="0 0 20px 1em"><circle cx="17px" cy="0.675em" r="2px"/></svg>'); 
+}
+
+#doc .header {
+	display: block;
+	outline: none;
+	text-decoration: none;
+	margin: 0;
+	font-weight: 700;
+	font-size: 100%;
+	color: #458;
+	border-left: 2px solid #f3f3f3;/* #f9f9f9*/
+	padding-left: 4px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor: pointer;
+}
+#doc .header::before {
+	display: inline-block;
+	content: "+";
+	font: 12px monospace;
+	border: 1px solid #458;
+	line-height: 11px;
+	height: 11px;
+	width: 11px;
+	text-align: center;
+	border-radius: 50%;
+	margin-right: 4px;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+}
+#doc .item.open > .header::before {
+	content: "-";
+}
+#doc .header:hover {
+	border-left-color: #f3f3f3;
+	background: #f3f3f3;
+}
+
+#doc a.broken {
+	color: red;
+}
+#doc p {
+	margin: 0;
+}
+#doc p + p, #doc p.pad {
+	margin-top: 0.5em;
+}
+
+#doc .content, #doc ul {
+	padding-left: 20px;
+	border-left: 2px solid #f3f3f3;
+}
+#doc tt {
+	font-weight: bold;
+}
+#doc pre {
+	font-family: Consolas, Dejavu Sans Mono, Segoe UI Mono, Ubuntu Mono, Lucida Console, monospace;
+	font-size: 9pt;
+	line-height: 1.25;
+	background: white;
+	padding: 4px 2px 4px 10px;
+	margin: 0;
+	tab-size: 4;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+#doc pre a {
+	text-decoration: none;
+}
+#doc pre a.uf {
+	background-color: #f7f0ff;
+}
+#doc pre a.kw {
+	background-color: #f0f7ff;
+}
+#doc pre a.sf, #doc pre a.sv {
+	background-color: #fff3f0;
+}
+#doc pre a:hover {
+	text-decoration: underline;
+}
+#doc abbr[title] {
+	text-decoration: underline;
+	text-decoration-color: #bbb;
+	text-decoration-style: double;
+}
+/* delay display until load */
+#doc[ready] .item:not(.open) > .content {
+	display: none;
+}
+</style>
+<style type="text/css" id="md_gml">
+/* GameMakerLanguage */
+pre.gmlmd .md { color: #808 } /* #define */
+pre.gmlmd .kw { color: #008; font-weight: bold } /* keyword */
+pre.gmlmd .co { color: #080 } /* comment */
+pre.gmlmd .nu { color: #00f } /* number */
+pre.gmlmd .nx { color: #00f } /* hex */
+pre.gmlmd .st { color: #00f } /* string */
+pre.gmlmd .ts { color: #00f } /* template string */
+pre.gmlmd .op { color: #000 } /* operator */
+pre.gmlmd .cb { color: #008; font-weight: bold } /* curly brace */
+pre.gmlmd .sv { color: #800 } /* std func */
+pre.gmlmd .sf { color: #800 } /* std var */
+pre.gmlmd .ri { color: #0078aa } /* assets */
+pre.gmlmd .uf { color: #808 } /* user func */
+pre.gmlmd .uv { color: #000 } /* user var */
+pre.gmlmd .lv { color: #648 } /* local var */
+pre.gmlmd .fd { color: #804 } /* field */
+</style>
+<noscript><style>
+#doc .header::before {
+	display: none;
+}
+#doc .header:hover {
+	border-left-color: #f3f3f3;
+	background: inherit;
+}
+#doc { display: inherit }
+#doc .item:not(.open) > .content {
+	display: inherit;
+}
+</style></noscript>
+</head><body><p>
+This is a "cheat sheet" for GOG.gml extension by YellowAfterlife.<br>
+The extension can be downloaded from <a href="https://yellowafterlife.itch.io/gog-gml">itch.io</a>.<br>
+Source code can be found on <a href="https://github.com/GameMakerDiscord/GOG.gml">GitHub</a>.<br>
+An up-to-date version of this document can always be found <a href="https://yal.cc/r/18/gog">online</a>.
+</p><p>
+Click on sections to expand/collapse them.<br>
+Quick display controls: <a href="#" onclick="opt_none(); return false">Categories</a>
+&middot; <a href="#" onclick="opt_list(); return false">Functions</a>
+&middot; <a href="#" onclick="opt_all(); return false">Everything</a>
+</p><div id="doc">
+<!--<doc--><!--doc>-->
+</div> <!-- #doc -->
+<!-- doc: -->
+<script>(function() {
+var doc = document.getElementById("doc");
+var headers = doc.getElementsByClassName("header");
+//
+var path = "jump.doc.state";
+var state = null;
+if (window.localStorage && JSON.parse) {
+	state = window.localStorage.getItem(path);
+	state = state ? JSON.parse(state) : { };
+	if (state == null) state = { };
+}
+var isLocal = (location.host.indexOf("localhost") == 0);
+//
+function h3bind(h3) {
+	var node = h3.parentNode;
+	var snip = node.children[1];
+	var id = h3.id || h3.textContent;
+	h3.snip = snip;
+	h3.doc_set = function(z) {
+		if (z) node.classList.add("open"); else node.classList.remove("open");
+		if (state) {
+			state[id] = z;
+			window.localStorage.setItem(path, JSON.stringify(state));
+		}
+	}
+	h3.doc_hide = function() {
+		this.doc_set(false);
+	}
+	h3.doc_show = function() {
+		this.doc_set(true);
+	}
+	h3.onclick = function(_) {
+		var seen = !node.classList.contains("open");
+		h3.doc_set(seen);
+		return false;
+	};
+}
+function getHashFunc(id) {
+	var node = document.getElementById(id);
+	if (node == null) return null;
+	return function(e) {
+		while (node && node != doc) {
+			if (node.classList.contains("item")) {
+				node.classList.add("open");
+			}
+			node = node.parentElement;
+		}
+	};
+}
+(function() {
+	for (var i = 0; i < headers.length; i++) h3bind(headers[i]);
+	// Clicks in document expand the related section:
+	var anchors = doc.getElementsByTagName("a");
+	for (var i = 0; i < anchors.length; i++) {
+		var anchor = anchors[i];
+		if (anchor.classList.contains("header")) continue;
+		var href = anchor.getAttribute("href");
+		if (href[0] == "#") {
+			var fn = getHashFunc(href.substr(1));
+			if (!fn) {
+				anchor.classList.add("broken");
+				anchor.title = "(section missing)";
+			} else anchor.addEventListener("click", fn);
+		}
+	}
+})();
+// Display helpers:
+window.opt_none = function() {
+	for (var li = 0; li < headers.length; li++) headers[li].doc_hide();
+};
+window.opt_list = function() {
+	for (var li = 0; li < headers.length; li++) {
+		var h3 = headers[li];
+		if (h3.parentNode.parentNode != doc) {
+			h3.doc_hide();
+		} else h3.doc_show();
+	}
+};
+window.opt_all = function() {
+	for (var li = 0; li < headers.length; li++) headers[li].doc_show();
+};
+// Default display setting:
+(function() {
+	for (var li = 0; li < headers.length; li++) {
+		var h3 = headers[li];
+		var val = state ? state[h3.id || h3.textContent] : null;
+		if (val == null) val = isLocal || h3.parentNode.parentNode == doc;
+		if (val) h3.doc_show(); else h3.doc_hide();
+	}
+})();
+//
+(function() {
+	var hash = document.location.hash;
+	if (hash) {
+		var _hash = hash.substr(1);
+		getHashFunc(_hash)();
+		setTimeout(function() {
+			document.location.hash = hash + " ";
+			setTimeout(function() {
+				document.location.hash = hash;
+			}, 0);
+		}, 1);
+	}
+})();
+//
+doc.setAttribute("ready", "");
+if (isLocal) {
+	var live_js = document.createElement("script");
+	live_js.src = "live.js";
+	live_js.type = "text/javascript";
+	document.head.appendChild(live_js);
+}
+})();
+</script>
+</body></html>
