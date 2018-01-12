@@ -114,6 +114,23 @@ bool gog_stats_ready_v = false;
 dllx double gog_stats_ready() {
 	return gog_stats_ready_v;
 }
+
+bool gog_stats_auto_submit_v = true;
+dllx double gog_stats_auto_submit(double auto_submit) {
+	gog_stats_auto_submit_v = auto_submit > 0.5;
+	return true;
+}
+///
+dllx double gog_stats_submit() {
+	Stats()->StoreStatsAndAchievements();
+	return GalaxyOK;
+}
+bool gog_stats_post() {
+	if (gog_stats_auto_submit_v) {
+		Stats()->StoreStatsAndAchievements();
+		return GalaxyOK;
+	} else return true;
+}
 ///
 dllx double gog_stats_request() {
 	gog_stats_ready_v = false;
@@ -123,6 +140,7 @@ dllx double gog_stats_request() {
 ///
 dllx double gog_reset_all_stats_achievements() {
 	Stats()->ResetStatsAndAchievements();
+	gog_stats_post();
 	return GalaxyOK;
 }
 ///
@@ -136,12 +154,12 @@ dllx double gog_get_stat_float(char* stat_name) {
 ///
 dllx double gog_set_stat_int(char* stat_name, double value) {
 	Stats()->SetStatInt(stat_name, (int32_t)value);
-	return GalaxyOK;
+	return GalaxyOK && gog_stats_post();
 }
 ///
 dllx double gog_set_stat_float(char* stat_name, double value) {
 	Stats()->SetStatFloat(stat_name, (float)value);
-	return GalaxyOK;
+	return GalaxyOK && gog_stats_post();
 }
 #pragma endregion
 
@@ -161,7 +179,7 @@ dllx double gog_get_achievement_time(char* name) {
 /// Acquires an achievement, returns whether successfully.
 dllx double gog_set_achievement(char* name) {
 	Stats()->SetAchievement(name);
-	return GalaxyOK;
+	return GalaxyOK && gog_stats_post();
 }
 #pragma endregion
 

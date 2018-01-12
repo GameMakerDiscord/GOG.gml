@@ -87,6 +87,26 @@
           <args/>
         </function>
         <function>
+          <name>gog_stats_auto_submit</name>
+          <externalName>gog_stats_auto_submit</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_stats_submit</name>
+          <externalName>gog_stats_submit</externalName>
+          <kind>11</kind>
+          <help>gog_stats_submit()</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>gog_stats_request</name>
           <externalName>gog_stats_request</externalName>
           <kind>11</kind>
@@ -279,10 +299,42 @@
           </args>
         </function>
         <function>
+          <name>gog_get_user_avatar_url</name>
+          <externalName>gog_get_user_avatar_url</externalName>
+          <kind>11</kind>
+          <help>gog_get_user_avatar_url(galaxy_id, size)</help>
+          <returnType>1</returnType>
+          <argCount>2</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_request_user_info</name>
+          <externalName>gog_request_user_info</externalName>
+          <kind>11</kind>
+          <help>gog_request_user_info(galaxy_id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
           <name>gog_get_persona_name</name>
           <externalName>gog_get_persona_name</externalName>
           <kind>11</kind>
           <help>gog_get_persona_name()</help>
+          <returnType>1</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_get_user_galaxy_id</name>
+          <externalName>gog_get_user_galaxy_id</externalName>
+          <kind>11</kind>
+          <help>gog_get_user_galaxy_id()</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -314,38 +366,6 @@
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
-          <name>gog_request_user_info</name>
-          <externalName>gog_request_user_info</externalName>
-          <kind>11</kind>
-          <help>gog_request_user_info(galaxy_id)</help>
-          <returnType>2</returnType>
-          <argCount>1</argCount>
-          <args>
-            <arg>1</arg>
-          </args>
-        </function>
-        <function>
-          <name>gog_get_user_avatar_url</name>
-          <externalName>gog_get_user_avatar_url</externalName>
-          <kind>11</kind>
-          <help>gog_get_user_avatar_url(galaxy_id, size)</help>
-          <returnType>1</returnType>
-          <argCount>2</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>2</arg>
-          </args>
-        </function>
-        <function>
-          <name>gog_get_user_galaxy_id</name>
-          <externalName>gog_get_user_galaxy_id</externalName>
-          <kind>11</kind>
-          <help>gog_get_user_galaxy_id()</help>
-          <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
         </function>

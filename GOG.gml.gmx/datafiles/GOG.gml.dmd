@@ -108,6 +108,16 @@ show_debug_message
 		
 		[gog_stats_ready] will return false until new data is ready.
 	}
+	#[gog_stats_submit()]() {
+		Sends updated stats & achievements back to client.
+		
+		You don't usually have to do this manually unless using [gog_stats_auto_submit].
+	}
+	#[gog_stats_auto_submit(enable)]() {
+		By default, stats and achievements will auto-submit on changes.
+		
+		If you are using them on large enough scale to cause issues, you can use this function to disable auto-submission and call [gog_stats_submit] by yourself to submit once you have finished the local changes.
+	}
 	#[gog_set_achievement(name)]() {
 		Acquires the specified achievement, returns whether successful.
 	}
