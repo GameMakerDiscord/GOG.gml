@@ -1,14 +1,22 @@
 /// @author YellowAfterlife
 
 #define _CRT_SECURE_NO_WARNINGS
+#ifdef _WIN32
 #include "stdafx.h"
+#endif
 #include <vector>
 #include <memory>
 #include <sstream>
 #include <iomanip>
-#include "galaxy/GalaxyApi.h"
+#include "./../GOG/Include/galaxy/GalaxyApi.h"
 
+#if defined(WIN32)
 #define dllx extern "C" __declspec(dllexport)
+#elif defined(GNUC)
+#define dllx extern "C" __attribute__ ((visibility("default")))
+#else
+#define dllx extern "C"
+#endif
 
 using namespace galaxy::api;
 #define GalaxyOK (galaxy::api::GetError() == NULL)
@@ -18,7 +26,7 @@ using namespace galaxy::api;
 #define trace(...) { printf("[Galaxy] "); printf(__VA_ARGS__); printf("\n"); fflush(stdout); }
 // Copies a const char to a temporary buffer for returning to GM (which makes a copy of it)
 char* ccr(const char* str) {
-	static char* buf = new char[1];
+	static char* buf = (char*)malloc(1);
 	static size_t bufSize = 1;
 	size_t strSize = strlen(str);
 	if (bufSize < strSize) {
@@ -99,12 +107,12 @@ class gog_event {
 /// Returns last error's name, "" if no error
 dllx char* gog_get_error() {
 	auto e = galaxy::api::GetError();
-	return e != NULL ? ccr(e->GetName()) : "";
+	return ccr(e != NULL ? e->GetName() : "");
 }
 /// Returns last error's message, "" if no error
 dllx char* gog_get_error_text() {
 	auto e = galaxy::api::GetError();
-	return e != NULL ? ccr(e->GetMsg()) : "";
+	return ccr(e != NULL ? e->GetMsg() : "");
 }
 #pragma endregion
 
@@ -272,7 +280,7 @@ dllx char* gog_get_user_galaxy_id() {
 	uint64_t next = User()->GetGalaxyID().ToUint64();
 	if (curr != next) {
 		curr = next;
-		sprintf(buf, "%I64u\0", next);
+		sprintf(buf, "%I64u", next);
 	}
 	return buf;
 }

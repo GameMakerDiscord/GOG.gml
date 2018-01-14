@@ -2,6 +2,7 @@
 */Configs/*/*
 */extensions/*/*.cpp
 */extensions/*/*.dll
+*/extensions/*/*.dylib
 */Release/
 Release/
 export/*.gmez
@@ -15,3 +16,4 @@ help.rtf
 /GOG.gml.gmx/datafiles/GOG.gml.html
 /GOG.gml.gmx/datafiles/live.js
 /GOG.gml.VC.VC.opendb
+/GOG.gml/GOG.gml.o
