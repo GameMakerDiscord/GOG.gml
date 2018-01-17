@@ -3,25 +3,6 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
-    <datafile>
-      <name>GOG.gml.html</name>
-      <exists>-1</exists>
-      <size>25983</size>
-      <exportAction>2</exportAction>
-      <exportDir></exportDir>
-      <overwrite>0</overwrite>
-      <freeData>-1</freeData>
-      <removeEnd>0</removeEnd>
-      <store>0</store>
-      <ConfigOptions>
-        <Config name="Default">
-          <CopyToMask>9223372036854775807</CopyToMask>
-        </Config>
-      </ConfigOptions>
-      <filename>GOG.gml.html</filename>
-    </datafile>
-  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\GOG.gml</extension>
   </NewExtensions>
@@ -32,7 +13,6 @@
   <scripts name="scripts">
     <script>scripts\trace.gml</script>
   </scripts>
-  <shaders name="shaders"/>
   <fonts name="fonts">
     <font>fonts\fnt_test</font>
   </fonts>

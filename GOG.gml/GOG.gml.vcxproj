@@ -131,6 +131,7 @@
     <PostBuildEvent>
       <Command>copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
 copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
+copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
 gmxgen "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName).extension.gmx"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
