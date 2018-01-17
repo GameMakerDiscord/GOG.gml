@@ -99,7 +99,7 @@ case "gog_leaderboard_retrieve":
     // (what were we fetching this for?)
     switch (leaderboard_intent) {
         case 1:
-            if (gog_upload_score("best_winners", leaderboard_score, true)) {
+            if (gog_upload_score("best_winners", leaderboard_new_score, true)) {
                 show_debug_message("Score uploaded.");
             } else show_debug_message(gog_get_error_text());
             break;
@@ -165,7 +165,6 @@ case "gog_leaderboard_download":
           <argument>
             <kind>1</kind>
             <string>if (async_load[?"id"] == avatar_request) {
-    trace("hello", async_load[?"status"])
     avatar_request = -1;
     if (async_load[?"status"] == 0) {
         avatar_sprite = sprite_add("avatar.png", 1, false, false, 0, 0);
@@ -250,7 +249,7 @@ if (d[2]) {
 }
 if (d[3]) {
     leaderboard_intent = 1;
-    leaderboard_score = get_integer("New score?", 1);
+    leaderboard_new_score = get_integer("New score?", 1);
     if (gog_create_leaderboard("best_winners", "best_winners", lb_sort_descending, lb_disp_numeric)) {
         show_debug_message("Fetching leaderboard...");
     } else show_debug_message(gog_get_error_text());

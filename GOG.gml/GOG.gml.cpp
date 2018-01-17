@@ -1,4 +1,4 @@
-/// @author YellowAfterlife
+/** @author YellowAfterlife */
 
 #define _CRT_SECURE_NO_WARNINGS
 #ifdef _WIN32
