@@ -1,3 +1,5 @@
+Maintained by: YellowAfterlife
+
 This extension wraps GOG.com SDK for use in GameMaker: Studio and GameMaker Studio 2 games.
 
 It covers the basic functionality - achievements, stats, and leaderboards, plus a few other commonly used functions.
