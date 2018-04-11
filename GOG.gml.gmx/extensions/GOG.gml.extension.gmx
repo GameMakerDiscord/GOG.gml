@@ -3,7 +3,7 @@
   <name>GOG.gml</name>
   <version>1.0.0</version>
   <packageID></packageID>
-  <ProductID></ProductID>
+  <ProductID>ACBD3CFF4E539AD869A0E8E3B4B022DD</ProductID>
   <date>18/02/17</date>
   <license>Proprietary</license>
   <description></description>
@@ -272,6 +272,17 @@
           <externalName>gog_download_friends_scores</externalName>
           <kind>11</kind>
           <help>gog_download_friends_scores(lb_name)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_user_installed_dlc</name>
+          <externalName>gog_user_installed_dlc</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -643,6 +654,17 @@
         <function>
           <name>gog_download_friends_scores</name>
           <externalName>gog_download_friends_scores</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_user_installed_dlc</name>
+          <externalName>gog_user_installed_dlc</externalName>
           <kind>11</kind>
           <help></help>
           <returnType>2</returnType>

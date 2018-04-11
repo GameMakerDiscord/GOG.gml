@@ -243,6 +243,12 @@ dllx double gog_download_friends_scores(char* lb_name) {
 }
 #pragma endregion
 
+#pragma region DLC
+dllx double gog_user_installed_dlc(char* product_id) {
+	return Apps()->IsDlcInstalled(atoll(product_id));
+}
+#pragma endregion
+
 #pragma region User
 bool gog_is_user_logged_on_v = false;
 #define gog_parse_id(sid) GalaxyID(atoll(sid))
