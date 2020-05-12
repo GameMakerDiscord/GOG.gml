@@ -1,0 +1,2 @@
+gog_update();
+

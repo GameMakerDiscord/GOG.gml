@@ -22,32 +22,32 @@
     <ProjectGuid>{EA16C6EF-C7F3-42BC-A4AC-EBEE2E84C450}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>GOG.gml</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -88,11 +88,35 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOGgml_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./../GOG/Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>./../GOG/Libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
+copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG.gml.gml" "$(SolutionDir)GOG.gml.gmx\extensions\GOG.gml\GOG.gml.gml"
+
+cmd /C echo Copying files...
+copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
+copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
+copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
+
+copy /y "$(TargetPath)" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(TargetFileName)"
+copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
+copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)GOG_yy\extensions\GOG_gml\Galaxy.dll"
+
+cmd /C echo Copying documentation from export/ to projects
+copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG.gml.gmx\datafiles\$(AssemblyName).html"
+copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG_yy\datafiles\$(AssemblyName).html"
+
+cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gmxgen/)
+cmd /C gmxgen "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName).extension.gmx"
+cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -129,10 +153,25 @@
       <AdditionalDependencies>Galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
+      <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
+copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG.gml.gml" "$(SolutionDir)GOG.gml.gmx\extensions\GOG.gml\GOG.gml.gml"
+
+cmd /C echo Copying files...
+copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
 copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
 copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
-gmxgen "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName).extension.gmx"</Command>
+
+copy /y "$(TargetPath)" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(TargetFileName)"
+copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
+copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)GOG_yy\extensions\GOG_gml\Galaxy.dll"
+
+cmd /C echo Copying documentation from export/ to projects
+copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG.gml.gmx\datafiles\$(AssemblyName).html"
+copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG_yy\datafiles\$(AssemblyName).html"
+
+cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gmxgen/)
+cmd /C gmxgen "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName).extension.gmx"
+cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
