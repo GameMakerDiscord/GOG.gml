@@ -3,7 +3,7 @@
   <name>GOG.gml</name>
   <version>1.0.0</version>
   <packageID></packageID>
-  <ProductID>ACBD3CFF4E539AD869A0E8E3B4B022DD</ProductID>
+  <ProductID></ProductID>
   <date>18/02/17</date>
   <license>Proprietary</license>
   <description></description>
@@ -62,7 +62,7 @@
         <function>
           <name>gog_get_error</name>
           <externalName>gog_get_error</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_error() : Returns last error's name, "" if no error</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
@@ -71,7 +71,7 @@
         <function>
           <name>gog_get_error_text</name>
           <externalName>gog_get_error_text</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_error_text() : Returns last error's message, "" if no error</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
@@ -80,7 +80,7 @@
         <function>
           <name>gog_stats_ready</name>
           <externalName>gog_stats_ready</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_stats_ready()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -100,7 +100,7 @@
         <function>
           <name>gog_stats_submit</name>
           <externalName>gog_stats_submit</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_stats_submit()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -109,7 +109,7 @@
         <function>
           <name>gog_stats_request</name>
           <externalName>gog_stats_request</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_stats_request()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -118,7 +118,7 @@
         <function>
           <name>gog_reset_all_stats_achievements</name>
           <externalName>gog_reset_all_stats_achievements</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_reset_all_stats_achievements()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -127,7 +127,7 @@
         <function>
           <name>gog_get_stat_int</name>
           <externalName>gog_get_stat_int</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_stat_int(stat_name)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -138,7 +138,7 @@
         <function>
           <name>gog_get_stat_float</name>
           <externalName>gog_get_stat_float</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_stat_float(stat_name)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -149,7 +149,7 @@
         <function>
           <name>gog_set_stat_int</name>
           <externalName>gog_set_stat_int</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_set_stat_int(stat_name, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -161,7 +161,7 @@
         <function>
           <name>gog_set_stat_float</name>
           <externalName>gog_set_stat_float</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_set_stat_float(stat_name, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -173,7 +173,7 @@
         <function>
           <name>gog_get_achievement</name>
           <externalName>gog_get_achievement</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_achievement(name) : Returns achievement status (true/false), -1 on error</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -184,7 +184,7 @@
         <function>
           <name>gog_get_achievement_time</name>
           <externalName>gog_get_achievement_time</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_achievement_time(name) : Returns time of obtaining achievement, -1 on error</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -195,7 +195,7 @@
         <function>
           <name>gog_set_achievement</name>
           <externalName>gog_set_achievement</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_set_achievement(name) : Acquires an achievement, returns whether successfully.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -206,7 +206,7 @@
         <function>
           <name>gog_create_leaderboard</name>
           <externalName>gog_create_leaderboard</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_create_leaderboard(name, display_name, lb_sort, lb_disp)</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
@@ -220,7 +220,7 @@
         <function>
           <name>gog_get_leaderboard_display_name</name>
           <externalName>gog_get_leaderboard_display_name</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_leaderboard_display_name(name)</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
@@ -231,7 +231,7 @@
         <function>
           <name>gog_upload_score</name>
           <externalName>gog_upload_score</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_upload_score(lb_name, score_int32, force_update)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -244,7 +244,7 @@
         <function>
           <name>gog_download_scores</name>
           <externalName>gog_download_scores</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_download_scores(lb_name, start_idx, end_idx)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -257,7 +257,7 @@
         <function>
           <name>gog_download_scores_around_user</name>
           <externalName>gog_download_scores_around_user</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_download_scores_around_user(lb_name, range_start, range_end)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
@@ -270,7 +270,7 @@
         <function>
           <name>gog_download_friends_scores</name>
           <externalName>gog_download_friends_scores</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_download_friends_scores(lb_name)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -292,7 +292,7 @@
         <function>
           <name>gog_is_user_logged_on</name>
           <externalName>gog_is_user_logged_on</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_is_user_logged_on()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -301,7 +301,7 @@
         <function>
           <name>gog_get_user_persona_name</name>
           <externalName>gog_get_user_persona_name</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_user_persona_name(galaxy_id) : Unlike Steam, you get the actual name once loaded and "" on error.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
@@ -312,7 +312,7 @@
         <function>
           <name>gog_get_user_avatar_url</name>
           <externalName>gog_get_user_avatar_url</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_user_avatar_url(galaxy_id, size)</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
@@ -324,7 +324,7 @@
         <function>
           <name>gog_request_user_info</name>
           <externalName>gog_request_user_info</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_request_user_info(galaxy_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
@@ -335,7 +335,7 @@
         <function>
           <name>gog_get_persona_name</name>
           <externalName>gog_get_persona_name</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_persona_name()</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
@@ -344,7 +344,7 @@
         <function>
           <name>gog_get_user_galaxy_id</name>
           <externalName>gog_get_user_galaxy_id</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_get_user_galaxy_id()</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
@@ -353,7 +353,7 @@
         <function>
           <name>gog_update</name>
           <externalName>gog_update</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_update()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
@@ -362,7 +362,7 @@
         <function>
           <name>gog_init</name>
           <externalName>gog_init</externalName>
-          <kind>11</kind>
+          <kind>1</kind>
           <help>gog_init(client_id, client_secret)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
@@ -446,8 +446,8 @@
         <function>
           <name>gog_get_error</name>
           <externalName>gog_get_error</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_error() : Returns last error's name, "" if no error</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -455,8 +455,8 @@
         <function>
           <name>gog_get_error_text</name>
           <externalName>gog_get_error_text</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_error_text() : Returns last error's message, "" if no error</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -464,8 +464,8 @@
         <function>
           <name>gog_stats_ready</name>
           <externalName>gog_stats_ready</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_stats_ready()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -484,8 +484,8 @@
         <function>
           <name>gog_stats_submit</name>
           <externalName>gog_stats_submit</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_stats_submit()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -493,8 +493,8 @@
         <function>
           <name>gog_stats_request</name>
           <externalName>gog_stats_request</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_stats_request()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -502,8 +502,8 @@
         <function>
           <name>gog_reset_all_stats_achievements</name>
           <externalName>gog_reset_all_stats_achievements</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_reset_all_stats_achievements()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -511,8 +511,8 @@
         <function>
           <name>gog_get_stat_int</name>
           <externalName>gog_get_stat_int</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_stat_int(stat_name)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -522,8 +522,8 @@
         <function>
           <name>gog_get_stat_float</name>
           <externalName>gog_get_stat_float</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_stat_float(stat_name)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -533,8 +533,8 @@
         <function>
           <name>gog_set_stat_int</name>
           <externalName>gog_set_stat_int</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_set_stat_int(stat_name, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -545,8 +545,8 @@
         <function>
           <name>gog_set_stat_float</name>
           <externalName>gog_set_stat_float</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_set_stat_float(stat_name, value)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
@@ -557,8 +557,8 @@
         <function>
           <name>gog_get_achievement</name>
           <externalName>gog_get_achievement</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_achievement(name) : Returns achievement status (true/false), -1 on error</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -568,8 +568,8 @@
         <function>
           <name>gog_get_achievement_time</name>
           <externalName>gog_get_achievement_time</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_achievement_time(name) : Returns time of obtaining achievement, -1 on error</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -579,8 +579,8 @@
         <function>
           <name>gog_set_achievement</name>
           <externalName>gog_set_achievement</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_set_achievement(name) : Acquires an achievement, returns whether successfully.</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -590,8 +590,8 @@
         <function>
           <name>gog_create_leaderboard</name>
           <externalName>gog_create_leaderboard</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_create_leaderboard(name, display_name, lb_sort, lb_disp)</help>
           <returnType>2</returnType>
           <argCount>4</argCount>
           <args>
@@ -604,8 +604,8 @@
         <function>
           <name>gog_get_leaderboard_display_name</name>
           <externalName>gog_get_leaderboard_display_name</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_leaderboard_display_name(name)</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
@@ -615,8 +615,8 @@
         <function>
           <name>gog_upload_score</name>
           <externalName>gog_upload_score</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_upload_score(lb_name, score_int32, force_update)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -628,8 +628,8 @@
         <function>
           <name>gog_download_scores</name>
           <externalName>gog_download_scores</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_download_scores(lb_name, start_idx, end_idx)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -641,8 +641,8 @@
         <function>
           <name>gog_download_scores_around_user</name>
           <externalName>gog_download_scores_around_user</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_download_scores_around_user(lb_name, range_start, range_end)</help>
           <returnType>2</returnType>
           <argCount>3</argCount>
           <args>
@@ -654,8 +654,8 @@
         <function>
           <name>gog_download_friends_scores</name>
           <externalName>gog_download_friends_scores</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_download_friends_scores(lb_name)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -676,8 +676,8 @@
         <function>
           <name>gog_is_user_logged_on</name>
           <externalName>gog_is_user_logged_on</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_is_user_logged_on()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -685,8 +685,8 @@
         <function>
           <name>gog_get_user_persona_name</name>
           <externalName>gog_get_user_persona_name</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_user_persona_name(galaxy_id) : Unlike Steam, you get the actual name once loaded and "" on error.</help>
           <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
@@ -696,8 +696,8 @@
         <function>
           <name>gog_get_user_avatar_url</name>
           <externalName>gog_get_user_avatar_url</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_user_avatar_url(galaxy_id, size)</help>
           <returnType>1</returnType>
           <argCount>2</argCount>
           <args>
@@ -708,8 +708,8 @@
         <function>
           <name>gog_request_user_info</name>
           <externalName>gog_request_user_info</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_request_user_info(galaxy_id)</help>
           <returnType>2</returnType>
           <argCount>1</argCount>
           <args>
@@ -719,8 +719,8 @@
         <function>
           <name>gog_get_persona_name</name>
           <externalName>gog_get_persona_name</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_persona_name()</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -728,8 +728,8 @@
         <function>
           <name>gog_get_user_galaxy_id</name>
           <externalName>gog_get_user_galaxy_id</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_get_user_galaxy_id()</help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -737,8 +737,8 @@
         <function>
           <name>gog_update</name>
           <externalName>gog_update</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_update()</help>
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
@@ -746,8 +746,8 @@
         <function>
           <name>gog_init</name>
           <externalName>gog_init</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_init(client_id, client_secret)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
           <args>
