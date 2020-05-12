@@ -15,7 +15,7 @@ Naming convention used here follows that of built-in Steam functions, so if you'
 ## Building
 Download or clone the repository.
 
-Create a "GOG" directory and extract [GOG SDK](https://devportal.gog.com/panel/components/sdk) (v1.113.3 was used as of writing this) into there.
+Create a "GOG" directory and extract [GOG SDK](https://devportal.gog.com/panel/components/sdk) (v1.138 was used as of writing this) into there.
 
 Binaries are then built as following:
 

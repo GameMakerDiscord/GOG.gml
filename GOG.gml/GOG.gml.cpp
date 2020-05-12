@@ -431,10 +431,11 @@ dllx double gog_update() {
 }
 ///
 dllx double gog_init(char* client_id, char* client_secret) {
-	galaxy::api::Init(client_id, client_secret, false);
+	InitOptions options(client_id, client_secret);
+	galaxy::api::Init(options);
 	GalaxyAsync = new GalaxyAsyncImpl();
-	User()->SignIn();
-	if (GalaxyOK) trace("Init OK");
+	User()->SignInGalaxy();
+	if (GalaxyOK) trace("Init OK!");
 	return GalaxyOK;
 }
 dllx double gog_cleanup() {
