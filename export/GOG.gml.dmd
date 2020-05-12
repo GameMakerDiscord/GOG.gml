@@ -1,0 +1,268 @@
+```gmlapi
+gog_download_scores
+gog_download_scores_around_user
+gog_download_friends_scores
+gog_get_leaderboard_display_name
+async_load
+json_decode
+array_create
+ds_map_destroy
+string
+show_debug_message
+```
+#[Setting up and general notes](setup) {
+	--{
+	--	Import GOG.gml extension to your project.
+	--	Add a [gog_init] call on game start with your game's ID and secret key.
+	--	Add a [gog_update] call to a step event of a persistent object.
+	}
+	Most API functions can be used once user is [logged in](gog_is_user_logged_on);
+	Stats/achievement functions require waiting for data [to be ready](gog_stats_ready);
+	Async events are dispatched as Async - Steam events with custom event types;
+	(GameMaker currently lacks support for custom events)
+	Overlay shows up when the game is ran from GOG Galaxy client.
+	
+	For convenience, function names largely follow the patterns defined by GameMaker's built-in Steam API functions ([GMS1](http://docs.yoyogames.com/source/dadiospice/002_reference/steam%20api/index.html), [GMS2](http://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/steam%20api/index.html)), making the migration largely a matter of replacing "steam_" by "gog_" in function names or adding a conditional call to either.
+}
+#[General functions](general) {
+	#[gog_init(client_id, client_secret)]() {
+		Initializes GOG Galaxy API and returns whether successful.
+		
+		Client ID and client secret are issued to you by GOG.
+	}
+	#[gog_update()]() {
+		Updates async events, file operations, and other things that API needs to work.
+		
+		Should be called every frame.
+	}
+	#[gog_is_user_logged_on()]() {
+		Returns whether the user is logged in via GOG Galaxy client.
+		
+		It can take a few seconds for user to get logged in, so it may be a good idea to wait until this clear before calling other API functions.
+	}
+	#[gog_get_error()]() {
+		Returns the (technical) name of the last error occurred, `""` if none.
+		
+		The error is reset before any API call.
+	}
+	#[gog_get_error_text()]() {
+		Returns the description of the last error occurred, `""` if none.
+		
+		The error is reset before any API call.
+	}
+}
+#[User functions](user) {
+	#[gog_get_persona_name()]() {
+		Returns the display/persona name of local player.
+	}
+	#[gog_get_user_galaxy_id()]() {
+		Returns the local user's galaxy ID as a string (can be used with other functions here).
+	}
+	#[gog_get_user_persona_name(galaxy_id)]() {
+		Returns the display/persona name of given user, or "" if it is not known (see [gog_request_user_info]).
+	}
+	#[gog_get_user_avatar_url(galaxy_id, avatar_size)]() {
+		Returns the avatar URL for the given user.
+		
+		`avatar_size` can be one of the following:
+		--{
+		--	`0`: Small (32x32)
+		--	`1`: Medium (64x64)
+		--	`2`: Large (184x184)
+		}
+	}
+	#[gog_request_user_info(galaxy_id)]() {
+		Requests information about the given player to be loaded asynchronously.
+		
+		You don't usually have to do this because information about friends and players inside leaderboards is fetched automatically.
+	}
+	#[Additional user events]() {
+		The following are the async events dispatched automatically as API initializes, with according fields of `async_load`.
+		
+		*User auth*: --{
+		--	`event_type`: will be set to `"gog_user_auth"`.
+		--	`success`: indicates whether auth succeeded.
+		--	`reason`: if failed, indicates reason of failure: --{
+			--	`0`: Unknown reason.
+			--	`1`: Galaxy Service is not installed or fails to start.
+			--	`2`: Galaxy Service is not signed in properly.
+			--	`3`: Unable to communicate with backend services.
+			--	`4`: User that is being signed in has no license for this application.
+			--	`5`: Unable to match client credentials (ID, secret) or user credentials (username, password).
+			--	`6`: Galaxy has not been initialized.
+			--	`7`: Unable to communicate with external service.
+			}
+		}
+		*User stats*: --{
+		--	`event_type`: will be set to `"gog_user_stats"`.
+		--	`success`: indicates whether stats were received.
+		}
+	}
+}
+#[Stats and achievements](stats) {
+	#[gog_stats_ready()]() {
+		Returns whether the stats & achievements API is ready to use (data has been received).
+	}
+	#[gog_stats_request()]() {
+		Requests stats to be re-acquired from client.
+		
+		[gog_stats_ready] will return false until new data is ready.
+	}
+	#[gog_stats_submit()]() {
+		Sends updated stats & achievements back to client.
+		
+		You don't usually have to do this manually unless using [gog_stats_auto_submit].
+	}
+	#[gog_stats_auto_submit(enable)]() {
+		By default, stats and achievements will auto-submit on changes.
+		
+		If you are using them on large enough scale to cause issues, you can use this function to disable auto-submission and call [gog_stats_submit] by yourself to submit once you have finished the local changes.
+	}
+	#[gog_set_achievement(name)]() {
+		Acquires the specified achievement, returns whether successful.
+	}
+	#[gog_get_achievement(name)]() {
+		Returns whether the specified achievement is already acquired.
+		
+		Returns -1 in case of error (e.g. wrong achievement name / not logged in).
+	}
+	#[gog_get_stat_int(name)]() {
+		Retrieves a value of a signed 32-bit integer stat.
+	}
+	#[gog_set_stat_int(name, value)]() {
+		Updates a value of a signed 32-bit integer stat.
+		
+		Returns whether successful.
+	}
+	#[gog_get_stat_float(name)]() {
+		Returns a value of a 32-bit floating point stat.
+	}
+	#[gog_set_stat_float(name, value)]() {
+		Updates a value of a 32-bit floating point stat.
+	}
+}
+#[Leaderboards](leaderboards) {
+	#[gog_create_leaderboard(lb_name, display_name, sort_method, display_type)]() {
+		Creates or finds a leaderboard with specified name.
+		
+		`sort_method` determines how leaderboard entries will sorted (if it is created) and can be one of the following: --{
+		--	`lb_sort_none`: No sorting method specified.
+		--	`lb_sort_ascending`: Top score is the lowest number.
+		--	`lb_sort_descending`: Top score is the highest number.
+		}
+		
+		`display_type` determines how leaderboard entries are displayed in client: --{
+		--	`lb_disp_none`: No display method specified.
+		--	`lb_disp_numeric`: Display scores as numbers.
+		--	`lb_disp_time_sec`: Display scores as time in seconds.
+		--	`lb_disp_time_ms`: Display scores as time in milliseconds.
+		}
+		
+		Unlike a similar Steam function, the operation is asynchronous and dispatches an async event when completed. `async_load` will contain the following fields: --{
+		--	`event_type`: set to `"gog_leaderboard_retrieve"`.
+		--	`lb_name`: name of the requested leaderboard (first parameter in the function).
+		--	`success`: whether the request succeeded.
+		--	`result`: 1 if succeeded, anything else on failure.
+		}
+		
+		Returns whether the async operation started (no early error).
+	}
+	#[gog_get_leaderboard_display_name(lb_name)]() {
+		Returns the display name of specified leaderboard.
+		The leaderboard must be previously retrieved via [gog_create_leaderboard].
+		
+		Returns `""` in case of error.
+	}
+	#[gog_upload_score(lb_name, score, force_update)]() {
+		Submits a score to a specified leaderboard.
+		The leaderboard must be previously retrieved via [gog_create_leaderboard].
+		
+		If `force_update` is set, the score overrides the previous one (if any).
+		
+		Otherwise the score is only accepted if it is better (as per leaderboard's sorting method) than the previous one (or if there's none).
+		
+		The operation is asynchronous and dispatches an async event when completed. `async_load` will contain the following fields: --{
+		--	`event_type`: set to `"gog_leaderboard_upload"`.
+		--	`lb_name`: name of the leaderboard in question.
+		--	`score`: current score.
+		--	`success`: whether the request succeeded
+			(note: if `force_update` is false and score isn't better, request "fails")
+		--	`result`: 1 if successful, anything else on failure.
+		--	`old_rank`: If successful, stores the previous rank (position in leaderboard).
+		--	`new_rank`: If successful, stores the new rank (position in leaderboard).
+		--	`reason`: If failed, stores the numeric failure code, --{
+			--	`0`: unspecified error
+			--	`1`: previous score was better and the update operation was not forced.
+			}
+		}
+		
+		Returns whether the async operation started (no early error).
+	}
+	#[gog_download_scores(lb_name, start_pos, end_pos)]() {
+		Fetches a number of entries from the specified leaderboard.
+		The leaderboard must be previously retrieved via [gog_create_leaderboard].
+		
+		Positions start at 1. End position is inclusive, so to fetch first 10 items you could do
+		```
+		gog_download_scores("best_winners", 1, 10);
+		```
+		The operation is asynchronous and dispatches an async event when completed. `async_load` will contain the following fields: --{
+		--	`event_type`: set to `"gog_leaderboard_download"`.
+		--	`lb_name`: name of the leaderboard in question.
+		--	`success`: whether the request succeeded.
+		--	`result`: 1 if successful, anything else on failure.
+		--	`numEntries`: number of entries received.
+		--	`entries`: if successful, contains a string with JSON data for entries, such as
+			```text
+			{ "entries": [
+			  { "user": "194040212412504931", "name": "GalaxyTest", "score": 2, "rank": 1 },
+			  { "user": "191102906021773312", "name": "YellowAfterlife", "score": 1, "rank": 2 }
+			] }
+			```
+			where per-entry fields are as following: --{
+			--	`user`: GOG user ID (including bit flags) as a string.
+			--	`name`: User's display/persona name.
+			--	`rank`: User's rank (1 for first place).
+			--	`score`: User's score.
+			}
+		}
+		Returns whether the async operation started (no early error).
+		
+		For example, if you wanted to fill out a number of `leaderboard_` variables when the scores are received, you could add the following code to Async - Steam event:
+		```
+		if (async_load[?"event_type"] == "gog_leaderboard_download") {
+			if (async_load[?"success"]) {
+				var entries_map = json_decode(async_load[?"entries"]);
+				var entries_list = entries_map[?"entries"];
+				leaderboard_count = async_load[?"numEntries"];
+				// in old versions of GMS you'd instead do
+				// if (leaderboard_count > 0) leaderboard_rank[leaderboard_count - 1] = 0;
+				leaderboard_rank = array_create(leaderboard_count);
+				leaderboard_score = array_create(leaderboard_count);
+				leaderboard_name = array_create(leaderboard_count);
+				for (var i = 0; i < leaderboard_count; i++) {
+					var entry = entries_list[|i];
+					leaderboard_rank[i] = entry[?"rank"];
+					leaderboard_score[i] = entry[?"score"];
+					leaderboard_name[i] = entry[?"name"];
+				}
+				ds_map_destroy(entries_map);
+				show_debug_message("Got " + string(leaderboard_count) + " entries.");
+			} else {
+				show_debug_message("Failed to fetch entries.");
+			}
+		}
+		```
+	}
+	#[gog_download_scores_around_user(lb_name, range_start, range_end)]() {
+		Much like [gog_download_scores], but fetches scores relative to current user's score.
+		
+		So, to fetch 2 positions before the user's score and 3 positions after, you could do
+		```
+		gog_download_scores_around_user("best_winners", -2, 3);
+		```
+	}
+	#[gog_download_friends_scores(lb_name)]() {
+		Much like [gog_download_scores], but fetches scores of the current user and people on their friends-list.
+	}
+}
