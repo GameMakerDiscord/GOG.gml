@@ -23,5 +23,6 @@ export/*.gmz
 /GOG.gml.VC.VC.opendb
 /GOG.gml/GOG.gml.o
 
+/GOG.gml.gmx/extensions/GOG.gml/GOG.gml.gml
 /GOG.gml.gmx/datafiles/GOG.gml.html
 /GOG_yy/datafiles/GOG.gml.html
