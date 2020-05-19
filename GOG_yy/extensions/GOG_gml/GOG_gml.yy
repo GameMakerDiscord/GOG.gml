@@ -56,33 +56,33 @@
                     "returnType": 2
                 },
                 {
-                    "id": "06c38a2a-8645-4dad-8f9f-fa9caae90a00",
+                    "id": "b4a4b9ff-e6e8-3db6-604a-cb7f409fff29",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
                     "args": [
                         
                     ],
-                    "externalName": "gog_get_error",
-                    "help": "gog_get_error() : Returns last error's name, \"\" if no error",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "gog_get_error",
+                    "externalName": "gog_get_error_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_get_error_raw",
                     "returnType": 1
                 },
                 {
-                    "id": "30fe6598-0b93-4fe8-bb07-cfd55c42dbac",
+                    "id": "73f89b24-e0ed-612d-8afe-921d26390a4a",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
                     "args": [
                         
                     ],
-                    "externalName": "gog_get_error_text",
-                    "help": "gog_get_error_text() : Returns last error's message, \"\" if no error",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "gog_get_error_text",
+                    "externalName": "gog_get_error_text_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_get_error_text_raw",
                     "returnType": 1
                 },
                 {
@@ -488,19 +488,52 @@
                     "returnType": 2
                 },
                 {
-                    "id": "831806ca-7fd8-49dd-a133-7e05ce50472b",
+                    "id": "c3d3ce88-f7f9-2cc1-9fb5-52e6d78e66be",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "gog_user_sign_in_galaxy_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_user_sign_in_galaxy_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "3c2c3177-c4ca-1f3e-351f-3480b0358851",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
-                    "externalName": "gog_init",
-                    "help": "gog_init(client_id, client_secret)",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "gog_init",
+                    "externalName": "gog_user_sign_in_steam_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_user_sign_in_steam_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "67bcdf06-4f12-f8b1-48cd-2cfd45f093c2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        1,
+                        2
+                    ],
+                    "externalName": "gog_init_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_init_raw",
                     "returnType": 2
                 },
                 {
@@ -571,7 +604,96 @@
             "filename": "GOG.gml.gml",
             "final": "",
             "functions": [
-                
+                {
+                    "id": "d3f0da0b-8f7a-4c34-b042-2ca1aa6ae30b",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_preinit",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_preinit",
+                    "returnType": 2
+                },
+                {
+                    "id": "f5ee44b8-6904-2f31-3e00-4394a0979c48",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_init",
+                    "help": "gog_init(client_id, client_secret, auto_sign_in = true)",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_init",
+                    "returnType": 2
+                },
+                {
+                    "id": "2c87cb1a-90e1-7f09-0c8e-e009af3578b5",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_get_error",
+                    "help": "gog_get_error()->",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_get_error",
+                    "returnType": 2
+                },
+                {
+                    "id": "1f5763c1-9176-c1cc-94e4-63946879c513",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_get_error_text",
+                    "help": "gog_get_error_text()->",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_get_error_text",
+                    "returnType": 2
+                },
+                {
+                    "id": "03b809aa-5545-c870-510c-aa175b24f369",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_user_sign_in_galaxy",
+                    "help": "gog_user_sign_in_galaxy(require_online = false)",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_user_sign_in_galaxy",
+                    "returnType": 2
+                },
+                {
+                    "id": "59523124-3f12-347a-f210-a3036a8093b5",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_user_sign_in_steam",
+                    "help": "gog_user_sign_in_steam(app_ticket_buf, ?app_ticket_size)",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_user_sign_in_steam",
+                    "returnType": 2
+                }
             ],
             "init": "",
             "kind": 2,
@@ -614,33 +736,33 @@
                     "returnType": 2
                 },
                 {
-                    "id": "c45415fb-28e5-4c21-b54c-2b9a27e64a9f",
+                    "id": "db3c4faa-d898-72df-a00d-364c8247c05b",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
                     "args": [
                         
                     ],
-                    "externalName": "gog_get_error",
-                    "help": "gog_get_error() : Returns last error's name, \"\" if no error",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "gog_get_error",
+                    "externalName": "gog_get_error_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_get_error_raw",
                     "returnType": 1
                 },
                 {
-                    "id": "e71899d7-bf4c-45e9-b17a-0309e9a025ed",
+                    "id": "28187319-af07-f671-d716-c628a445255d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
                     "argCount": 0,
                     "args": [
                         
                     ],
-                    "externalName": "gog_get_error_text",
-                    "help": "gog_get_error_text() : Returns last error's message, \"\" if no error",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "gog_get_error_text",
+                    "externalName": "gog_get_error_text_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_get_error_text_raw",
                     "returnType": 1
                 },
                 {
@@ -1046,19 +1168,52 @@
                     "returnType": 2
                 },
                 {
-                    "id": "85e681ce-237d-4e82-9317-8e7d3ba48bc4",
+                    "id": "7d5c417f-c7ea-a3b2-8425-f47e4f6cc8c0",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
-                    "argCount": 2,
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "gog_user_sign_in_galaxy_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_user_sign_in_galaxy_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "795abc6d-e8c5-e69f-cea5-5b1e07bf7ed8",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
                     "args": [
                         1,
+                        2,
                         1
                     ],
-                    "externalName": "gog_init",
-                    "help": "gog_init(client_id, client_secret)",
-                    "hidden": false,
-                    "kind": 1,
-                    "name": "gog_init",
+                    "externalName": "gog_user_sign_in_steam_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_user_sign_in_steam_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "8b595a2a-4008-34e0-f708-9cccceec8b56",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        1,
+                        2
+                    ],
+                    "externalName": "gog_init_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_init_raw",
                     "returnType": 2
                 },
                 {
@@ -1116,7 +1271,7 @@
             "uncompress": false
         },
         {
-            "id": "dff14f2f-b262-4bf5-9c25-74fca90822d6",
+            "id": "8311d73b-76e9-489a-b244-e84c68b98bba",
             "modelName": "GMExtensionFile",
             "mvc": "1.0",
             "ProxyFiles": [
@@ -1125,7 +1280,7 @@
             "constants": [
                 
             ],
-            "copyToTargets": 64,
+            "copyToTargets": -1,
             "filename": "Galaxy.dll",
             "final": "",
             "functions": [

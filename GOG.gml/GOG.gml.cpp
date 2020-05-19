@@ -17,6 +17,7 @@
 #else
 #define dllx extern "C"
 #endif
+#define fbool(val) ((val) > 0.5)
 
 using namespace galaxy::api;
 #define GalaxyOK (galaxy::api::GetError() == NULL)
@@ -104,13 +105,11 @@ class gog_event {
 };
 
 #pragma region Errors
-/// Returns last error's name, "" if no error
-dllx char* gog_get_error() {
+dllx char* gog_get_error_raw() {
 	auto e = galaxy::api::GetError();
 	return ccr(e != NULL ? e->GetName() : "");
 }
-/// Returns last error's message, "" if no error
-dllx char* gog_get_error_text() {
+dllx char* gog_get_error_text_raw() {
 	auto e = galaxy::api::GetError();
 	return ccr(e != NULL ? e->GetMsg() : "");
 }
@@ -125,7 +124,7 @@ dllx double gog_stats_ready() {
 
 bool gog_stats_auto_submit_v = true;
 dllx double gog_stats_auto_submit(double auto_submit) {
-	gog_stats_auto_submit_v = auto_submit > 0.5;
+	gog_stats_auto_submit_v = fbool(auto_submit);
 	return true;
 }
 ///
@@ -216,7 +215,7 @@ dllx char* gog_get_leaderboard_display_name(char* name) {
 }
 ///
 dllx double gog_upload_score(char* lb_name, double score_int32, double force_update) {
-	Stats()->SetLeaderboardScore(lb_name, (int32_t)score_int32, force_update > 0.5);
+	Stats()->SetLeaderboardScore(lb_name, (int32_t)score_int32, fbool(force_update));
 	return GalaxyOK;
 }
 ///
@@ -429,12 +428,21 @@ dllx double gog_update() {
 	galaxy::api::ProcessData();
 	return GalaxyOK;
 }
-///
-dllx double gog_init(char* client_id, char* client_secret) {
+
+dllx double gog_user_sign_in_galaxy_raw(double require_online) {
+	User()->SignInGalaxy(fbool(require_online));
+	return true;
+}
+dllx double gog_user_sign_in_steam_raw(char* ticket, double ticket_size, char* name) {
+	User()->SignInSteam(ticket, (uint32_t)ticket_size, name);
+	return true;
+}
+
+dllx double gog_init_raw(char* client_id, char* client_secret, double auto_sign_in) {
 	InitOptions options(client_id, client_secret);
 	galaxy::api::Init(options);
 	GalaxyAsync = new GalaxyAsyncImpl();
-	User()->SignInGalaxy();
+	if (auto_sign_in > 0.5) User()->SignInGalaxy();
 	if (GalaxyOK) trace("Init OK!");
 	return GalaxyOK;
 }

@@ -60,19 +60,19 @@
           </args>
         </function>
         <function>
-          <name>gog_get_error</name>
-          <externalName>gog_get_error</externalName>
-          <kind>1</kind>
-          <help>gog_get_error() : Returns last error's name, "" if no error</help>
+          <name>gog_get_error_raw</name>
+          <externalName>gog_get_error_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
         </function>
         <function>
-          <name>gog_get_error_text</name>
-          <externalName>gog_get_error_text</externalName>
-          <kind>1</kind>
-          <help>gog_get_error_text() : Returns last error's message, "" if no error</help>
+          <name>gog_get_error_text_raw</name>
+          <externalName>gog_get_error_text_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -360,15 +360,40 @@
           <args/>
         </function>
         <function>
-          <name>gog_init</name>
-          <externalName>gog_init</externalName>
-          <kind>1</kind>
-          <help>gog_init(client_id, client_secret)</help>
+          <name>gog_user_sign_in_galaxy_raw</name>
+          <externalName>gog_user_sign_in_galaxy_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_user_sign_in_steam_raw</name>
+          <externalName>gog_user_sign_in_steam_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_init_raw</name>
+          <externalName>gog_init_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
@@ -396,7 +421,62 @@
         </Config>
       </ConfigOptions>
       <ProxyFiles/>
-      <functions/>
+      <functions>
+        <function>
+          <name>gog_preinit</name>
+          <externalName>gog_preinit</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_init</name>
+          <externalName>gog_init</externalName>
+          <kind>2</kind>
+          <help>gog_init(client_id, client_secret, auto_sign_in = true)</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_get_error</name>
+          <externalName>gog_get_error</externalName>
+          <kind>2</kind>
+          <help>gog_get_error()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_get_error_text</name>
+          <externalName>gog_get_error_text</externalName>
+          <kind>2</kind>
+          <help>gog_get_error_text()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_user_sign_in_galaxy</name>
+          <externalName>gog_user_sign_in_galaxy</externalName>
+          <kind>2</kind>
+          <help>gog_user_sign_in_galaxy(require_online = false)</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_user_sign_in_steam</name>
+          <externalName>gog_user_sign_in_steam</externalName>
+          <kind>2</kind>
+          <help>gog_user_sign_in_steam(app_ticket_buf, ?app_ticket_size)</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+      </functions>
       <constants/>
     </file>
     <file>
@@ -444,19 +524,19 @@
           </args>
         </function>
         <function>
-          <name>gog_get_error</name>
-          <externalName>gog_get_error</externalName>
-          <kind>1</kind>
-          <help>gog_get_error() : Returns last error's name, "" if no error</help>
+          <name>gog_get_error_raw</name>
+          <externalName>gog_get_error_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
         </function>
         <function>
-          <name>gog_get_error_text</name>
-          <externalName>gog_get_error_text</externalName>
-          <kind>1</kind>
-          <help>gog_get_error_text() : Returns last error's message, "" if no error</help>
+          <name>gog_get_error_text_raw</name>
+          <externalName>gog_get_error_text_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>1</returnType>
           <argCount>0</argCount>
           <args/>
@@ -744,15 +824,40 @@
           <args/>
         </function>
         <function>
-          <name>gog_init</name>
-          <externalName>gog_init</externalName>
-          <kind>1</kind>
-          <help>gog_init(client_id, client_secret)</help>
+          <name>gog_user_sign_in_galaxy_raw</name>
+          <externalName>gog_user_sign_in_galaxy_raw</externalName>
+          <kind>11</kind>
+          <help></help>
           <returnType>2</returnType>
-          <argCount>2</argCount>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_user_sign_in_steam_raw</name>
+          <externalName>gog_user_sign_in_steam_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_init_raw</name>
+          <externalName>gog_init_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
           <args>
             <arg>1</arg>
             <arg>1</arg>
+            <arg>2</arg>
           </args>
         </function>
         <function>
