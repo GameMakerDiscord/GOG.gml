@@ -100,13 +100,15 @@
       <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
 copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG.gml.gml" "$(SolutionDir)GOG.gml.gmx\extensions\GOG.gml\GOG.gml.gml"
 
+cmd /C echo Combining source files...
+type $(ProjectDir)gog_*.h $(ProjectDir)gog_*.cpp &gt; "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
+copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
+
 cmd /C echo Copying files...
 copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
-copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
 copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
 
 copy /y "$(TargetPath)" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(TargetFileName)"
-copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
 copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)GOG_yy\extensions\GOG_gml\Galaxy.dll"
 
 cmd /C echo Copying documentation from export/ to projects
@@ -156,13 +158,15 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
       <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
 copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG.gml.gml" "$(SolutionDir)GOG.gml.gmx\extensions\GOG.gml\GOG.gml.gml"
 
+cmd /C echo Combining source files...
+type $(ProjectDir)gog_*.h $(ProjectDir)gog_*.cpp &gt; "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
+copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
+
 cmd /C echo Copying files...
 copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
-copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
 copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
 
 copy /y "$(TargetPath)" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(TargetFileName)"
-copy /y "$(ProjectDir)$(AssemblyName).cpp" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
 copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)GOG_yy\extensions\GOG_gml\Galaxy.dll"
 
 cmd /C echo Copying documentation from export/ to projects
@@ -192,6 +196,7 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gog_shared.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="stdafx.h" />
@@ -212,7 +217,14 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="GOG.gml.cpp" />
+    <ClCompile Include="gog_apps.cpp" />
+    <ClCompile Include="gog_lobby.cpp" />
+    <ClCompile Include="gog_main.cpp" />
+    <ClCompile Include="gog_async.cpp" />
+    <ClCompile Include="gog_lobby_list.cpp" />
+    <ClCompile Include="gog_shared.cpp" />
+    <ClCompile Include="gog_stats.cpp" />
+    <ClCompile Include="gog_user.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
