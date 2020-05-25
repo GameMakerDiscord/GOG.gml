@@ -62,9 +62,20 @@
         <function>
           <name>gog_user_installed_dlc</name>
           <externalName>gog_user_installed_dlc</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_user_installed_dlc(product_id)</help>
           <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_get_app_language</name>
+          <externalName>gog_get_app_language</externalName>
+          <kind>1</kind>
+          <help>gog_get_app_language(product_id)</help>
+          <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
             <arg>1</arg>
@@ -488,6 +499,84 @@
           <args/>
         </function>
         <function>
+          <name>gog_network_send_packet_raw</name>
+          <externalName>gog_network_send_packet_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_read_packet_pre</name>
+          <externalName>gog_network_read_packet_pre</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_read_packet_post</name>
+          <externalName>gog_network_read_packet_post</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_get_ping_with</name>
+          <externalName>gog_network_get_ping_with</externalName>
+          <kind>1</kind>
+          <help>gog_network_get_ping_with(user_or_lobby_id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_get_connection_type</name>
+          <externalName>gog_network_get_connection_type</externalName>
+          <kind>1</kind>
+          <help>gog_network_get_connection_type(user_id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_get_nat_type</name>
+          <externalName>gog_network_get_nat_type</externalName>
+          <kind>1</kind>
+          <help>gog_network_get_nat_type() : ()-&gt;gog_network_nat_type</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_network_request_nat_type</name>
+          <externalName>gog_network_request_nat_type</externalName>
+          <kind>1</kind>
+          <help>gog_network_request_nat_type()</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>RegisterCallbacks</name>
           <externalName>RegisterCallbacks</externalName>
           <kind>11</kind>
@@ -790,6 +879,41 @@
       </functions>
       <constants>
         <constant>
+          <name>gog_personate_state_change_none</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_name</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_small</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_medium</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_large</name>
+          <value>16</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_any</name>
+          <value>28</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
           <name>gog_lobby_create_result_success</name>
           <value>0</value>
           <hidden>0</hidden>
@@ -972,6 +1096,71 @@
         <constant>
           <name>gog_lobby_list_cmp_type_ge</name>
           <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_unreliable</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_reliable</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_unreliable_immediate</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_reliable_immediate</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_connection_type_none</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_connection_type_direct</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_connection_type_proxy</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_none</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_full_cone</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_address_restricted</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_port_restricted</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_symmetric</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_unknown</name>
+          <value>5</value>
           <hidden>0</hidden>
         </constant>
       </constants>
@@ -1096,6 +1285,42 @@
             <arg>2</arg>
           </args>
         </function>
+        <function>
+          <name>gog_network_send_packet</name>
+          <externalName>gog_network_send_packet</externalName>
+          <kind>2</kind>
+          <help>gog_network_send_packet(user_id, buffer, size, send_type, channel = 0)</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_network_read_packet</name>
+          <externalName>gog_network_read_packet</externalName>
+          <kind>2</kind>
+          <help>gog_network_read_packet(buffer, channel = 0)</help>
+          <returnType>2</returnType>
+          <argCount>-1</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_network_get_packet_size</name>
+          <externalName>gog_network_get_packet_size</externalName>
+          <kind>2</kind>
+          <help>gog_network_get_packet_size()-&gt;number</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_network_get_packet_sender</name>
+          <externalName>gog_network_get_packet_sender</externalName>
+          <kind>2</kind>
+          <help>gog_network_get_packet_sender()-&gt;</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
       </functions>
       <constants/>
     </file>
@@ -1146,9 +1371,20 @@
         <function>
           <name>gog_user_installed_dlc</name>
           <externalName>gog_user_installed_dlc</externalName>
-          <kind>11</kind>
-          <help></help>
+          <kind>1</kind>
+          <help>gog_user_installed_dlc(product_id)</help>
           <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_get_app_language</name>
+          <externalName>gog_get_app_language</externalName>
+          <kind>1</kind>
+          <help>gog_get_app_language(product_id)</help>
+          <returnType>1</returnType>
           <argCount>1</argCount>
           <args>
             <arg>1</arg>
@@ -1572,6 +1808,84 @@
           <args/>
         </function>
         <function>
+          <name>gog_network_send_packet_raw</name>
+          <externalName>gog_network_send_packet_raw</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>3</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>1</arg>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_read_packet_pre</name>
+          <externalName>gog_network_read_packet_pre</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_read_packet_post</name>
+          <externalName>gog_network_read_packet_post</externalName>
+          <kind>11</kind>
+          <help></help>
+          <returnType>2</returnType>
+          <argCount>4</argCount>
+          <args>
+            <arg>1</arg>
+            <arg>2</arg>
+            <arg>1</arg>
+            <arg>2</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_get_ping_with</name>
+          <externalName>gog_network_get_ping_with</externalName>
+          <kind>1</kind>
+          <help>gog_network_get_ping_with(user_or_lobby_id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_get_connection_type</name>
+          <externalName>gog_network_get_connection_type</externalName>
+          <kind>1</kind>
+          <help>gog_network_get_connection_type(user_id)</help>
+          <returnType>2</returnType>
+          <argCount>1</argCount>
+          <args>
+            <arg>1</arg>
+          </args>
+        </function>
+        <function>
+          <name>gog_network_get_nat_type</name>
+          <externalName>gog_network_get_nat_type</externalName>
+          <kind>1</kind>
+          <help>gog_network_get_nat_type() : ()-&gt;gog_network_nat_type</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
+          <name>gog_network_request_nat_type</name>
+          <externalName>gog_network_request_nat_type</externalName>
+          <kind>1</kind>
+          <help>gog_network_request_nat_type()</help>
+          <returnType>2</returnType>
+          <argCount>0</argCount>
+          <args/>
+        </function>
+        <function>
           <name>RegisterCallbacks</name>
           <externalName>RegisterCallbacks</externalName>
           <kind>11</kind>
@@ -1874,6 +2188,41 @@
       </functions>
       <constants>
         <constant>
+          <name>gog_personate_state_change_none</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_name</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_small</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_medium</name>
+          <value>8</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_large</name>
+          <value>16</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_personate_state_change_avatar_image_any</name>
+          <value>28</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
           <name>gog_lobby_create_result_success</name>
           <value>0</value>
           <hidden>0</hidden>
@@ -2056,6 +2405,71 @@
         <constant>
           <name>gog_lobby_list_cmp_type_ge</name>
           <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_unreliable</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_reliable</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_unreliable_immediate</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_type_reliable_immediate</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_connection_type_none</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_connection_type_direct</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_connection_type_proxy</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_none</name>
+          <value>0</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_full_cone</name>
+          <value>1</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_address_restricted</name>
+          <value>2</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_port_restricted</name>
+          <value>3</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_symmetric</name>
+          <value>4</value>
+          <hidden>0</hidden>
+        </constant>
+        <constant>
+          <name>gog_network_nat_type_unknown</name>
+          <value>5</value>
           <hidden>0</hidden>
         </constant>
       </constants>

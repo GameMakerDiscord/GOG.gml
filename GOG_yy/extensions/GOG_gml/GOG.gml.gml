@@ -72,3 +72,37 @@ buffer_write(l_args, buffer_u32, argument1);
 buffer_write(l_args, buffer_u32, l_size);
 if (buffer_get_size(l_buf) < l_size) buffer_resize(l_buf, l_size);
 return gog_lobby_get_message_raw(argument0, argument2, buffer_get_address(l_args), buffer_get_address(l_buf));
+
+#define gog_network_send_packet
+/// (user_id, buffer, size, send_type, channel = 0)
+var l_dest = argument[0], l_buf = argument[1], l_size = argument[2], l_send_type = argument[3];
+var l_channel = argument_count > 4 ? argument[4] : 0;
+var l_args = global.gog_args_buffer;
+buffer_seek(l_args, buffer_seek_start, 0);
+buffer_write(l_args, buffer_u32, l_size);
+buffer_write(l_args, buffer_u8, l_send_type);
+buffer_write(l_args, buffer_u8, l_channel);
+return gog_network_send_packet_raw(l_dest, buffer_get_address(l_buf), buffer_get_address(l_args));
+
+#define gog_network_read_packet
+/// (buffer, channel = 0)
+var l_buf = argument[0];
+var l_channel = argument_count > 1 ? argument[1] : 0;
+var l_size = gog_network_read_packet_pre(l_channel) - 1;
+if (l_size < 0) return false;
+if (buffer_get_size(l_buf) < l_size) buffer_resize(l_buf, l_size);
+var l_args = global.gog_args_buffer;
+l_size = gog_network_read_packet_post(buffer_get_address(l_buf), l_size, buffer_get_address(l_args), l_channel);
+if (l_size < 0) return false;
+global.gog_network_packet_size = l_size;
+buffer_seek(l_args, buffer_seek_start, 0);
+global.gog_network_packet_sender = buffer_read(l_args, buffer_string);
+return true;
+
+#define gog_network_get_packet_size
+/// ()->number
+return global.gog_network_packet_size;
+
+#define gog_network_get_packet_sender
+/// ()->
+return global.gog_network_packet_sender;

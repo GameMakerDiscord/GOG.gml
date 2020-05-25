@@ -32,6 +32,62 @@
             ],
             "constants": [
                 {
+                    "id": "69796422-5d53-866b-dbf1-16a29c3533e4",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_none",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "c48fec35-9a47-adec-9a32-356b2a07e468",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_name",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "97694392-1917-7f08-7ea0-0e88d591530f",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "bac7e695-b6ff-f23a-6bea-c0ab32b583de",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_small",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "4e6b3033-2aba-3a5a-f489-193a82b5e2df",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_medium",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "f5187f08-bf64-a3a4-edb0-a9dea91702f0",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_large",
+                    "hidden": false,
+                    "value": "16"
+                },
+                {
+                    "id": "88bd22bc-e559-433b-0859-ded1e7785815",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_any",
+                    "hidden": false,
+                    "value": "28"
+                },
+                {
                     "id": "f0e0fdbb-a2ac-79f2-604a-cb7f4e71558d",
                     "modelName": "GMExtensionConstant",
                     "mvc": "1.0",
@@ -326,6 +382,110 @@
                     "constantName": "gog_lobby_list_cmp_type_ge",
                     "hidden": false,
                     "value": "2"
+                },
+                {
+                    "id": "96869bdd-c4ca-1f94-f9d3-52e6de71aa7b",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_unreliable",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "5b7013ac-df12-9ede-be76-ade5a4ca39b5",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_reliable",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "b55a16c7-4a47-a2d3-a045-5bbe6f357472",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_unreliable_immediate",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "6f97c5a0-86d7-2fe2-1cd7-d4e490f1e29c",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_reliable_immediate",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "a6e4c411-d454-bb4a-f2e6-3ad26387c029",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_connection_type_none",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "6c4d98f7-4697-4d93-f600-ab44dfa0c27a",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_connection_type_direct",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "28be3aef-7642-ad04-5d9b-e1f80171b100",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_connection_type_proxy",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "ce4cc33e-fa5c-f630-6c47-b83ba5c8fd9a",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_none",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "3d0e2e41-1fcf-7863-4f3a-e33ef8712d90",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_full_cone",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "55ac9c4e-402c-c32a-bf9a-1fbd17e11ed0",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_address_restricted",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "a55c2aaf-b4bf-c87b-7169-bf2274329ba3",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_port_restricted",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "a12c7ee5-c93f-637b-0305-e52621a0ecfb",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_symmetric",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "74be413c-9723-58a8-7355-28f73543a759",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_unknown",
+                    "hidden": false,
+                    "value": "5"
                 }
             ],
             "copyToTargets": 105553658380352,
@@ -359,11 +519,26 @@
                         1
                     ],
                     "externalName": "gog_user_installed_dlc",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "gog_user_installed_dlc(product_id)",
+                    "hidden": false,
+                    "kind": 1,
                     "name": "gog_user_installed_dlc",
                     "returnType": 2
+                },
+                {
+                    "id": "51ca9769-50f2-b7f7-bc12-e9cbbdafb033",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_get_app_language",
+                    "help": "gog_get_app_language(product_id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_get_app_language",
+                    "returnType": 1
                 },
                 {
                     "id": "9c624788-be91-420e-b9fb-abe440d9d1c9",
@@ -939,6 +1114,116 @@
                     "returnType": 2
                 },
                 {
+                    "id": "cb3f9beb-81a0-c2e5-60da-4674581ab11d",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "externalName": "gog_network_send_packet_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_network_send_packet_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "f8336257-7861-f963-d833-7e33939e9d1f",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "gog_network_read_packet_pre",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_network_read_packet_pre",
+                    "returnType": 2
+                },
+                {
+                    "id": "563c14fa-f89b-09fd-4c83-e45ff7494b11",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 4,
+                    "args": [
+                        1,
+                        2,
+                        1,
+                        2
+                    ],
+                    "externalName": "gog_network_read_packet_post",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_network_read_packet_post",
+                    "returnType": 2
+                },
+                {
+                    "id": "18e0b28c-eeb1-2ac8-bb1d-1c1253986b34",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_network_get_ping_with",
+                    "help": "gog_network_get_ping_with(user_or_lobby_id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_get_ping_with",
+                    "returnType": 2
+                },
+                {
+                    "id": "fdd9a477-4f51-d816-3b5e-af9b7c6b2988",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_network_get_connection_type",
+                    "help": "gog_network_get_connection_type(user_id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_get_connection_type",
+                    "returnType": 2
+                },
+                {
+                    "id": "79e2b085-e096-8201-413b-1195c64bf33a",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_get_nat_type",
+                    "help": "gog_network_get_nat_type() : ()->gog_network_nat_type",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_get_nat_type",
+                    "returnType": 2
+                },
+                {
+                    "id": "4e45bb19-3927-ddba-9671-4895cae20497",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_request_nat_type",
+                    "help": "gog_network_request_nat_type()",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_request_nat_type",
+                    "returnType": 2
+                },
+                {
                     "id": "fd8dd19d-c7eb-456d-a19e-d2a42ae66c30",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -1394,7 +1679,50 @@
                 "2854e471-38c7-4416-8e88-57fe51390f72",
                 "a295bf18-357f-46cd-8b33-070f9dfdae5c",
                 "831806ca-7fd8-49dd-a133-7e05ce50472b",
-                "80e5c081-7f5f-4faa-94ce-b2a892ca9dd1"
+                "80e5c081-7f5f-4faa-94ce-b2a892ca9dd1",
+                "51ca9769-50f2-b7f7-bc12-e9cbbdafb033",
+                "7114eaaf-d5aa-80f4-8f80-63aae699646d",
+                "8f87f4f8-15fc-7e6b-003b-4bf313ca6080",
+                "c6916977-0d06-8ab3-b5b3-dd9af100ef3e",
+                "0fe4edf0-6f2a-9b07-6f26-29ae4337a219",
+                "96869bdd-4c42-9794-604a-43f7c017558b",
+                "aa686ce2-8d4b-5783-6122-e983478c48ce",
+                "ab0c4d4b-2174-0a54-184e-b2fbd14f7584",
+                "b4993c67-0320-8887-9046-fd8324ff2e75",
+                "902f6d73-1377-089e-caf2-d229a1f59e6e",
+                "5dd1bbf1-0d06-536a-f9f2-e0a9dd695821",
+                "eea011f2-3e3e-93d2-c7e4-4a1eeb1d1d91",
+                "d0cba89f-72cf-cb8c-93dc-99ae9445c63d",
+                "2cd216c7-453d-91ef-eae9-97f76845f126",
+                "23215b41-1129-7acd-f294-fb1dbad33882",
+                "5a2f7e33-6898-fb4d-8a1d-1fcc02192ea5",
+                "2f151ce5-e9ed-5978-d851-be5b3f05e7fe",
+                "47620c8d-af37-8b03-dd28-336c4628ed6a",
+                "75f603c2-2d96-b6b0-1c41-68272079b654",
+                "98c966a5-6b5b-7830-fc2a-f8993619c544",
+                "ebbe9703-a915-6740-9091-f1913737d179",
+                "b1c58db3-0dad-7ee3-7424-e71dd89c9ea2",
+                "a04df55b-928f-cb0d-91be-bd67f68ab68f",
+                "e3f372e8-cb39-7ae9-830e-324916aae016",
+                "d91a0c17-4bed-a3dc-9537-a2478f6379ee",
+                "4b71b5eb-f501-1a55-16ab-bb96fb95a5b8",
+                "6f365d0e-b074-7bd6-9853-6493825248d3",
+                "4c7745e4-0346-3aa7-8516-de10538f171d",
+                "7571c3c6-7616-5e40-13c7-aa3019458e04",
+                "f5d6e0dd-cfef-81ea-f667-fc295fbe5957",
+                "a0097f5d-e8ff-1857-324b-1c973b7e8809",
+                "b4a4b9ff-e6e8-3db6-604a-cb7f409fff29",
+                "73f89b24-e0ed-612d-8afe-921d26390a4a",
+                "67bcdf06-4f12-f8b1-48cd-2cfd45f093c2",
+                "cb3f9beb-81a0-c2e5-60da-4674581ab11d",
+                "f8336257-7861-f963-d833-7e33939e9d1f",
+                "563c14fa-f89b-09fd-4c83-e45ff7494b11",
+                "18e0b28c-eeb1-2ac8-bb1d-1c1253986b34",
+                "fdd9a477-4f51-d816-3b5e-af9b7c6b2988",
+                "79e2b085-e096-8201-413b-1195c64bf33a",
+                "4e45bb19-3927-ddba-9671-4895cae20497",
+                "c3d3ce88-f7f9-2cc1-9fb5-52e6d78e66be",
+                "3c2c3177-c4ca-1f3e-351f-3480b0358851"
             ],
             "origname": "extensions\\GOG.gml.dll",
             "uncompress": false
@@ -1570,12 +1898,85 @@
                     "kind": 2,
                     "name": "gog_lobby_get_message",
                     "returnType": 2
+                },
+                {
+                    "id": "ac2d0451-bbb4-7899-0106-6c8920f93613",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_send_packet",
+                    "help": "gog_network_send_packet(user_id, buffer, size, send_type, channel = 0)",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_network_send_packet",
+                    "returnType": 2
+                },
+                {
+                    "id": "84a6edde-dfe8-18c2-18c7-0a5e0cfba6a3",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": -1,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_read_packet",
+                    "help": "gog_network_read_packet(buffer, channel = 0)",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_network_read_packet",
+                    "returnType": 2
+                },
+                {
+                    "id": "3786e6f7-bcc0-47bb-4448-145cd80ec172",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_get_packet_size",
+                    "help": "gog_network_get_packet_size()->number",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_network_get_packet_size",
+                    "returnType": 2
+                },
+                {
+                    "id": "8622ab40-db20-7392-adae-f35041620b75",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_get_packet_sender",
+                    "help": "gog_network_get_packet_sender()->",
+                    "hidden": false,
+                    "kind": 2,
+                    "name": "gog_network_get_packet_sender",
+                    "returnType": 2
                 }
             ],
-            "init": "",
+            "init": "gog_preinit",
             "kind": 2,
             "order": [
-                
+                "d3f0da0b-8f7a-4c34-b042-2ca1aa6ae30b",
+                "f5ee44b8-6904-2f31-3e00-4394a0979c48",
+                "d2a4c488-3989-fc3e-b9c7-5f88506a1da2",
+                "2c87cb1a-90e1-7f09-0c8e-e009af3578b5",
+                "1f5763c1-9176-c1cc-94e4-63946879c513",
+                "03b809aa-5545-c870-510c-aa175b24f369",
+                "59523124-3f12-347a-f210-a3036a8093b5",
+                "96869bdd-2a24-f194-240e-61d5e253558b",
+                "bf25503b-ba81-d410-3c1f-534f61ac9992",
+                "299f7af6-7353-2cfd-ff55-e4901f08e7aa",
+                "ac2d0451-bbb4-7899-0106-6c8920f93613",
+                "84a6edde-dfe8-18c2-18c7-0a5e0cfba6a3",
+                "3786e6f7-bcc0-47bb-4448-145cd80ec172",
+                "8622ab40-db20-7392-adae-f35041620b75"
             ],
             "origname": "extensions\\gml.gml",
             "uncompress": false
@@ -1588,6 +1989,62 @@
                 
             ],
             "constants": [
+                {
+                    "id": "5f0fdb0c-5ce5-d4c6-2a2e-a0b386141515",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_none",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "303b1deb-4c42-7865-4c0b-f24c0f08d739",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_name",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "c4b2580c-0dd0-a549-7a85-c737e014760b",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "30076d50-8f0c-92d9-552e-1bbde8d26411",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_small",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "73c2cc9d-47c6-e4d5-6567-3295d068de8b",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_medium",
+                    "hidden": false,
+                    "value": "8"
+                },
+                {
+                    "id": "7e8faf0a-507f-3d2c-4968-06c6b5c87408",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_large",
+                    "hidden": false,
+                    "value": "16"
+                },
+                {
+                    "id": "53b33c86-30cb-a05e-e3e8-cd618b29e390",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_personate_state_change_avatar_image_any",
+                    "hidden": false,
+                    "value": "28"
+                },
                 {
                     "id": "80b0cb47-fafe-a7b2-0dce-7b1e2a5b34e2",
                     "modelName": "GMExtensionConstant",
@@ -1883,6 +2340,110 @@
                     "constantName": "gog_lobby_list_cmp_type_ge",
                     "hidden": false,
                     "value": "2"
+                },
+                {
+                    "id": "4a90ddde-4b13-1eaf-e469-6a7de70be208",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_unreliable",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "ab325968-fc78-dd96-1791-8a93e3c580e9",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_reliable",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "45dc0ffb-1b2e-532f-a106-a575ce8e4d8e",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_unreliable_immediate",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "a96a75b3-c7aa-5135-b59e-02a73a4a8a81",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_type_reliable_immediate",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "3194ea38-7343-7211-fab1-ca30c7d27ffc",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_connection_type_none",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "62886a77-dfb9-5b47-33e9-76f166d27008",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_connection_type_direct",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "b933ba63-9601-b03e-dc99-09217a045159",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_connection_type_proxy",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "3863c055-6e09-4da9-51c0-6351f6c28773",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_none",
+                    "hidden": false,
+                    "value": "0"
+                },
+                {
+                    "id": "38a67d5c-eb00-974e-0ac8-9b6493c49cd1",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_full_cone",
+                    "hidden": false,
+                    "value": "1"
+                },
+                {
+                    "id": "34362d46-00dd-de32-8a48-d6bda936720a",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_address_restricted",
+                    "hidden": false,
+                    "value": "2"
+                },
+                {
+                    "id": "fe27b1b0-605e-0408-fd19-01ad40564713",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_port_restricted",
+                    "hidden": false,
+                    "value": "3"
+                },
+                {
+                    "id": "010a77b7-6cd9-a80f-15fa-cd85f92691e0",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_symmetric",
+                    "hidden": false,
+                    "value": "4"
+                },
+                {
+                    "id": "db523ecc-8ebb-af4b-5584-9476c99152b8",
+                    "modelName": "GMExtensionConstant",
+                    "mvc": "1.0",
+                    "constantName": "gog_network_nat_type_unknown",
+                    "hidden": false,
+                    "value": "5"
                 }
             ],
             "copyToTargets": 67108866,
@@ -1916,11 +2477,26 @@
                         1
                     ],
                     "externalName": "gog_user_installed_dlc",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
+                    "help": "gog_user_installed_dlc(product_id)",
+                    "hidden": false,
+                    "kind": 1,
                     "name": "gog_user_installed_dlc",
                     "returnType": 2
+                },
+                {
+                    "id": "6849b415-4f48-1615-d227-2dff653f84b8",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_get_app_language",
+                    "help": "gog_get_app_language(product_id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_get_app_language",
+                    "returnType": 1
                 },
                 {
                     "id": "a520c2c4-39a6-4317-8cc6-ce2056ba44d3",
@@ -2493,6 +3069,116 @@
                     "hidden": true,
                     "kind": 11,
                     "name": "gog_cleanup",
+                    "returnType": 2
+                },
+                {
+                    "id": "82490c7e-fb46-c565-84d8-23f8c6a02ccb",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 3,
+                    "args": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "externalName": "gog_network_send_packet_raw",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_network_send_packet_raw",
+                    "returnType": 2
+                },
+                {
+                    "id": "bf348386-e93b-9ca4-7560-741c440a0c71",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        2
+                    ],
+                    "externalName": "gog_network_read_packet_pre",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_network_read_packet_pre",
+                    "returnType": 2
+                },
+                {
+                    "id": "30ecce87-7b5e-6989-6378-d5679a7ebae4",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 4,
+                    "args": [
+                        1,
+                        2,
+                        1,
+                        2
+                    ],
+                    "externalName": "gog_network_read_packet_post",
+                    "help": "",
+                    "hidden": true,
+                    "kind": 11,
+                    "name": "gog_network_read_packet_post",
+                    "returnType": 2
+                },
+                {
+                    "id": "a7f4234d-b6a8-febf-1de8-0320013f80f2",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_network_get_ping_with",
+                    "help": "gog_network_get_ping_with(user_or_lobby_id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_get_ping_with",
+                    "returnType": 2
+                },
+                {
+                    "id": "4cb237fa-300a-660a-5b48-d753ff00bd3c",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_network_get_connection_type",
+                    "help": "gog_network_get_connection_type(user_id)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_get_connection_type",
+                    "returnType": 2
+                },
+                {
+                    "id": "6c64c1bf-624c-3b50-b0d8-0ed34fe679c9",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_get_nat_type",
+                    "help": "gog_network_get_nat_type() : ()->gog_network_nat_type",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_get_nat_type",
+                    "returnType": 2
+                },
+                {
+                    "id": "90b741de-5c52-d502-1e6c-45b23b8bb6fd",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 0,
+                    "args": [
+                        
+                    ],
+                    "externalName": "gog_network_request_nat_type",
+                    "help": "gog_network_request_nat_type()",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_network_request_nat_type",
                     "returnType": 2
                 },
                 {

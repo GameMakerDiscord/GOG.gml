@@ -41,6 +41,11 @@ namespace gml {
 		if (val > (double)UINT32_MAX) return UINT32_MAX;
 		return (uint32_t)val;
 	}
+	inline uint8_t f2u8(double val) {
+		if (val < 0) return 0U;
+		if (val > (double)UINT8_MAX) return UINT8_MAX;
+		return (uint8_t)val;
+	}
 	template<typename T> T f2e(double val) {
 		return (T)(int)val;
 	}

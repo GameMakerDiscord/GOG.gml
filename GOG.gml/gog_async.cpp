@@ -9,6 +9,7 @@ extern std::vector<GalaxyID> gog_lobby_list_lobbies;
 
 class GalaxyAsyncImpl : public
 	GlobalAuthListener,
+	GlobalPersonaDataChangedListener,
 	GlobalUserStatsAndAchievementsRetrieveListener,
 	GlobalLeaderboardRetrieveListener,
 	GlobalLeaderboardScoreUpdateListener,
@@ -20,7 +21,8 @@ class GalaxyAsyncImpl : public
 	GlobalLobbyDataListener,
 	GlobalLobbyDataRetrieveListener,
 	GlobalLobbyMessageListener,
-	GlobalLobbyListListener
+	GlobalLobbyListListener,
+	GlobalNatTypeDetectionListener
 {
 public:
 	GalaxyAsyncImpl() {
@@ -46,6 +48,24 @@ public:
 		trace("Auth lost");
 	}
 	#pragma endregion
+
+	virtual void OnPersonaDataChanged(GalaxyID userID, uint32_t personaStateChange) {
+		/// gml
+		enum class gog_personate_state_change {
+			none = 0x0000,
+			name = 0x0001,
+			avatar = 0x0002,
+			avatar_image_small = 0x0004,
+			avatar_image_medium = 0x0008,
+			avatar_image_large = 0x0010,
+			avatar_image_any = 0x001C,
+		};
+		gog_event e("gog_persona_state_change");
+		e.set_id("user_id", userID);
+		e.set("changes", personaStateChange);
+		e.dispatch();
+	}
+
 	#pragma region Stats
 	virtual void OnUserStatsAndAchievementsRetrieveSuccess(GalaxyID userID) {
 		trace("Got stats!");
@@ -235,6 +255,20 @@ public:
 		e.set("success", result == LobbyEnterResult::LOBBY_ENTER_RESULT_SUCCESS);
 		e.dispatch();
 	}
+
+	#pragma region NAT
+	virtual void OnNatTypeDetectionSuccess(NatType natType) {
+		gog_event e("gog_network_nat_type");
+		e.set_success();
+		e.set("nat_type", (int)natType);
+		e.dispatch();
+	}
+	virtual void OnNatTypeDetectionFailure() {
+		gog_event e("gog_network_nat_type");
+		e.set_failure(0);
+		e.dispatch();
+	}
+	#pragma endregion
 } *GalaxyAsync = nullptr;
 
 void gog_async_init() {

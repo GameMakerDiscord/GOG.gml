@@ -222,6 +222,7 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
     <ClCompile Include="gog_main.cpp" />
     <ClCompile Include="gog_async.cpp" />
     <ClCompile Include="gog_lobby_list.cpp" />
+    <ClCompile Include="gog_network.cpp" />
     <ClCompile Include="gog_shared.cpp" />
     <ClCompile Include="gog_stats.cpp" />
     <ClCompile Include="gog_user.cpp" />

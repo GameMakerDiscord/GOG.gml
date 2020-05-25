@@ -62,6 +62,9 @@
     <ClCompile Include="gog_lobby_list.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gog_network.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GOG.gml.rc">
