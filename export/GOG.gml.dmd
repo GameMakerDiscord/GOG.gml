@@ -1,14 +1,13 @@
-```gmlapi
-gog_download_scores
-gog_download_scores_around_user
-gog_download_friends_scores
-gog_get_leaderboard_display_name
-async_load
-json_decode
-array_create
-ds_map_destroy
-string
-show_debug_message
+```set template default.html```
+```set autoapi ext```
+```gmlapi fnames```
+```set title GOG.gml cheat sheet```
+```set mainclass boxtt```
+```setmd intro
+This is a "cheat sheet" for GOG.gml extension by YellowAfterlife.  
+The extension can be downloaded from [itch.io](https://yellowafterlife.itch.io/gog-gml).  
+Source code can be found on [GitHub](https://github.com/GameMakerDiscord/GOG.gml).  
+An up-to-date version of this document can always be found [online](https://yal.cc/r/18/gog/). 
 ```
 #[Setting up and general notes](setup) {
 	--{
@@ -16,13 +15,17 @@ show_debug_message
 	--	Add a [gog_init] call on game start with your game's ID and secret key.
 	--	Add a [gog_update] call to a step event of a persistent object.
 	}
-	Most API functions can be used once user is [logged in](gog_is_user_logged_on);
-	Stats/achievement functions require waiting for data [to be ready](gog_stats_ready);
-	Async events are dispatched as Async - Steam events with custom event types;
-	(GameMaker currently lacks support for custom events)
+	Most API functions can be used once user is [logged in](gog_is_user_logged_on);  
+	Stats/achievement functions require waiting for data [to be ready](gog_stats_ready);  
+	Async events are dispatched as Async - Steam events with custom event types;  
+	(GameMaker currently lacks support for custom events)  
 	Overlay shows up when the game is ran from GOG Galaxy client.
 	
-	For convenience, function names largely follow the patterns defined by GameMaker's built-in Steam API functions ([GMS1](http://docs.yoyogames.com/source/dadiospice/002_reference/steam%20api/index.html), [GMS2](http://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/steam%20api/index.html)), making the migration largely a matter of replacing "steam_" by "gog_" in function names or adding a conditional call to either.
+	For convenience, function names largely follow the patterns defined by
+	GameMaker's built-in Steam API functions
+	([GMS1](http://docs.yoyogames.com/source/dadiospice/002_reference/steam%20api/index.html),
+	[GMS2](http://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/steam%20api/index.html)), 
+	making the migration largely a matter of replacing "steam_" by "gog_" in function names or adding a conditional call to do either.
 }
 #[General functions](general) {
 	#[gog_init(client_id, client_secret)]() {
@@ -116,7 +119,9 @@ show_debug_message
 	#[gog_stats_auto_submit(enable)]() {
 		By default, stats and achievements will auto-submit on changes.
 		
-		If you are using them on large enough scale to cause issues, you can use this function to disable auto-submission and call [gog_stats_submit] by yourself to submit once you have finished the local changes.
+		If you are using them on large enough scale to cause issues,
+		you can use this function to disable auto-submission and call
+		[gog_stats_submit] by yourself to submit once you have finished the local changes.
 	}
 	#[gog_set_achievement(name)]() {
 		Acquires the specified achievement, returns whether successful.
