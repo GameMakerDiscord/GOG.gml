@@ -21,12 +21,14 @@ dllx double gog_network_read_packet_pre(double channel_id) {
 	// we are returning size+1 here so that the game doesn't softlock
 	// if the extension is failed to load/not included and GM stubs out calls by returning 0
 	uint32_t size = 0;
-	return Networking()->IsP2PPacketAvailable(&size, gml::f2u8(channel_id)) ? size + 1 : 0;
+	auto api = Networking();
+	return api && api->IsP2PPacketAvailable(&size, gml::f2u8(channel_id)) ? size + 1 : 0;
 }
 dllx double gog_network_read_packet_post(char* dest, double dest_size, char* out_id_s, double channel_id) {
 	uint32_t found = 0;
 	GalaxyID out_id;
-	if (Networking()->ReadP2PPacket(dest, gml::f2u(dest_size), &found, out_id, gml::f2u8(channel_id))) {
+	auto api = Networking();
+	if (api && api->ReadP2PPacket(dest, gml::f2u(dest_size), &found, out_id, gml::f2u8(channel_id))) {
 		sprintf(out_id_s, "%I64u", out_id.ToUint64());
 		return found;
 	} else return -1;
@@ -34,14 +36,17 @@ dllx double gog_network_read_packet_post(char* dest, double dest_size, char* out
 
 ///
 dllx double gog_network_get_ping_with(const char* user_or_lobby_id) {
-	return Networking()->GetPingWith(gml::s2g(user_or_lobby_id));
+	auto api = Networking();
+	return api && api->GetPingWith(gml::s2g(user_or_lobby_id));
 }
 
 ///
 dllx double gog_network_get_connection_type(const char* user_id) {
 	/// gml
 	enum class gog_network_connection_type { none, direct, proxy };
-	return (int)Networking()->GetConnectionType(gml::s2g(user_id));
+	auto api = Networking();
+	if (!api) return 0;
+	return (int)api->GetConnectionType(gml::s2g(user_id));
 }
 
 /// ()->gog_network_nat_type
@@ -50,11 +55,15 @@ dllx double gog_network_get_nat_type() {
 	enum class gog_network_nat_type {
 		none, full_cone, address_restricted, port_restricted, symmetric, unknown
 	};
-	return (int)Networking()->GetNatType();
+	auto api = Networking();
+	if (!api) return 0;
+	return (int)api->GetNatType();
 }
 
 ///
 dllx double gog_network_request_nat_type() {
-	Networking()->RequestNatTypeDetection();
+	auto api = Networking();
+	if (!api) return false;
+	api->RequestNatTypeDetection();
 	return true;
 }
