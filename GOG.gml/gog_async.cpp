@@ -22,6 +22,8 @@ class GalaxyAsyncImpl : public
 	GlobalLobbyDataRetrieveListener,
 	GlobalLobbyMessageListener,
 	GlobalLobbyListListener,
+	GlobalGameInvitationReceivedListener,
+	GlobalGameJoinRequestedListener,
 	GlobalNatTypeDetectionListener
 {
 public:
@@ -255,6 +257,21 @@ public:
 		e.set("success", result == LobbyEnterResult::LOBBY_ENTER_RESULT_SUCCESS);
 		e.dispatch();
 	}
+
+	#pragma region Invitations
+	virtual void OnGameInvitationReceived(GalaxyID userID, const char* connectionString) {
+		gog_event e("gog_game_invitation_received");
+		e.set_id("user_id", userID);
+		e.set("connection_string", connectionString);
+		e.dispatch();
+	}
+	virtual void OnGameJoinRequested(GalaxyID userID, const char* connectionString) {
+		gog_event e("gog_game_join_requested");
+		e.set_id("user_id", userID);
+		e.set("connection_string", connectionString);
+		e.dispatch();
+	}
+	#pragma endregion
 
 	#pragma region NAT
 	virtual void OnNatTypeDetectionSuccess(NatType natType) {

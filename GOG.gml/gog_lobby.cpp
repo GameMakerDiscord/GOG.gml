@@ -194,3 +194,11 @@ dllx const char* gog_lobby_get_message_string(const char* lobby_id, double messa
 	buf[found] = '\0';
 	return buf;
 }
+
+///
+dllx double gog_lobby_show_invite_overlay(const char* connection_string) {
+	if (Utils()->GetOverlayState() == OVERLAY_STATE_INITIALIZED) {
+		Friends()->ShowOverlayInviteDialog(connection_string);
+		return true;
+	} else return false;
+}
