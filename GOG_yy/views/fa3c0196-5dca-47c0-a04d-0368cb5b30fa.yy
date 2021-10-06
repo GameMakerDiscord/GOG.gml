@@ -1,10 +1,10 @@
 {
-    "id": "5445a84a-6fd9-4ead-b257-f06e7a45f34c",
+    "id": "fa3c0196-5dca-47c0-a04d-0368cb5b30fa",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "5445a84a-6fd9-4ead-b257-f06e7a45f34c",
+    "name": "fa3c0196-5dca-47c0-a04d-0368cb5b30fa",
     "children": [
-        "47f6fdd8-8c0a-49f4-9b09-302b3ae3b808"
+        "f367224f-8d1a-4a7d-ae71-c9707bbebdaa"
     ],
     "filterType": "GMExtension",
     "folderName": "extensions",

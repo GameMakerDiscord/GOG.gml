@@ -1,11 +1,10 @@
 {
-    "id": "edde6464-e161-4403-92ac-74b30bcecaeb",
+    "id": "f617ff33-f194-424d-88b4-d41f65b10afd",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "edde6464-e161-4403-92ac-74b30bcecaeb",
+    "name": "f617ff33-f194-424d-88b4-d41f65b10afd",
     "children": [
-        "cc586037-1210-4144-873b-3bbb56e5692d",
-        "b774401e-65e5-4850-8549-bbf584d99328"
+        
     ],
     "filterType": "GMNotes",
     "folderName": "notes",

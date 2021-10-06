@@ -33,13 +33,13 @@ return string(l_value);
 #define gog_get_error
 /// ()->
 var l_result = gog_get_error_raw();
-if (is_string(l_result)) return result;
+if (is_string(l_result)) return l_result;
 return "Native extension not loaded";
 
 #define gog_get_error_text
 /// ()->
 var l_result = gog_get_error_text_raw();
-if (is_string(l_result)) return result;
+if (is_string(l_result)) return l_result;
 return "The native extension either failed to load or is not available on this platform."
 	+ " Check your Output for possible clues!";
 

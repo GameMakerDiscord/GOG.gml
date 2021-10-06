@@ -941,6 +941,21 @@
                     "returnType": 1
                 },
                 {
+                    "id": "2d3d2066-d5db-0e2f-bd97-bc08374266b0",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_lobby_show_invite_overlay",
+                    "help": "gog_lobby_show_invite_overlay(connection_string)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_lobby_show_invite_overlay",
+                    "returnType": 2
+                },
+                {
                     "id": "4b71b5eb-f501-1a55-16ab-bb96fb95a5b8",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -2897,6 +2912,21 @@
                     "kind": 1,
                     "name": "gog_lobby_get_message_string",
                     "returnType": 1
+                },
+                {
+                    "id": "4a610217-9865-4300-57ab-8cf36872b179",
+                    "modelName": "GMExtensionFunction",
+                    "mvc": "1.0",
+                    "argCount": 1,
+                    "args": [
+                        1
+                    ],
+                    "externalName": "gog_lobby_show_invite_overlay",
+                    "help": "gog_lobby_show_invite_overlay(connection_string)",
+                    "hidden": false,
+                    "kind": 1,
+                    "name": "gog_lobby_show_invite_overlay",
+                    "returnType": 2
                 },
                 {
                     "id": "76c80d9b-e246-3ce5-7bf3-e83a0be96994",
