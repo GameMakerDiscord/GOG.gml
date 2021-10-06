@@ -1,0 +1,11 @@
+{
+  "name": "GOG.gml.hx",
+  "url" : "https://github.com/GameMakerDiscord/GOG.gml",
+  "license": "MIT",
+  "tags": ["font", "truetype", "font-generator"],
+  "description": "Haxe bindings for GML bindings for C++ bindings of GOG SDK.",
+  "version": "0.0.1",
+  "releasenote": "Initial release",
+  "contributors": ["YellowAfterlife"],
+  "dependencies": {}
+}

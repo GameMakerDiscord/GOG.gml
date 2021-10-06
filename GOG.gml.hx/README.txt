@@ -1,0 +1,1 @@
+Haxe bindings for GML bindings for C++ bindings of GOG SDK.
