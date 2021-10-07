@@ -82,15 +82,6 @@
           </args>
         </function>
         <function>
-          <name>gog_stats_request</name>
-          <externalName>gog_stats_request</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
           <name>gog_lobby_create</name>
           <externalName>gog_lobby_create</externalName>
           <kind>1</kind>
@@ -586,20 +577,6 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
-        </function>
-        <function>
-          <name>RegisterCallbacks</name>
-          <externalName>RegisterCallbacks</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>4</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>1</arg>
-            <arg>1</arg>
-            <arg>1</arg>
-          </args>
         </function>
         <function>
           <name>gog_stats_ready</name>
@@ -1402,15 +1379,6 @@
           </args>
         </function>
         <function>
-          <name>gog_stats_request</name>
-          <externalName>gog_stats_request</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>0</argCount>
-          <args/>
-        </function>
-        <function>
           <name>gog_lobby_create</name>
           <externalName>gog_lobby_create</externalName>
           <kind>1</kind>
@@ -1906,20 +1874,6 @@
           <returnType>2</returnType>
           <argCount>0</argCount>
           <args/>
-        </function>
-        <function>
-          <name>RegisterCallbacks</name>
-          <externalName>RegisterCallbacks</externalName>
-          <kind>11</kind>
-          <help></help>
-          <returnType>2</returnType>
-          <argCount>4</argCount>
-          <args>
-            <arg>1</arg>
-            <arg>1</arg>
-            <arg>1</arg>
-            <arg>1</arg>
-          </args>
         </function>
         <function>
           <name>gog_stats_ready</name>

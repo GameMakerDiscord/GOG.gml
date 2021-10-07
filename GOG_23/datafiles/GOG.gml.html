@@ -1,0 +1,694 @@
+<html><head>
+<meta charset="UTF-8">
+<title>GOG.gml cheat sheet</title>
+<meta name="viewport" content="width=device-width" />
+<meta name="livenode" content="#doc" />
+<meta property="theme-color" content="#FFF037" />
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="en_us" />
+<meta property="og:site_name" content="YellowAfterlife" />
+<meta property="og:title" content="GOG.gml cheat sheet" />
+<script type="text/javascript">
+if (document.location.host == "yal.cc" && location.protocol == "http:") {
+	document.location.protocol = "https:";
+}
+</script>
+<style type="text/css">
+body, #doc tt {
+	font: 15px 'Open Sans', sans-serif;
+	line-height: 1.35;
+}
+body {
+	margin: 0;
+}
+.main {
+	width: 100%;
+	min-height: 100%;
+	min-height: 100vh;
+	background-color: #899FC6;
+}
+.page {
+	max-width: 656px;
+	background: #ffffff;
+	margin: 0 auto;
+	padding: 8px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+	min-height: 100%;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+.page > p:first-child {
+	margin-top: 0;
+}
+#doc, #doc ul, #doc ol {
+	padding-left: 0;
+	margin: 0;
+}
+#doc div ul, #doc div ol {
+	padding-left: 20px;
+}
+#doc div ul li {
+	list-style: disc;
+	list-style-image: url('data:image/svg+xml;base256,<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="1em" viewBox="0 0 20px 1em"><circle cx="17px" cy="0.675em" r="2px"/></svg>'); 
+}
+
+#doc .header {
+	display: block;
+	outline: none;
+	text-decoration: none;
+	margin: 0;
+	font-weight: 700;
+	font-size: 100%;
+	color: #458;
+	border-left: 2px solid #f3f3f3;/* #f9f9f9*/
+	padding-left: 4px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor: pointer;
+}
+#doc .header::before {
+	display: inline-block;
+	content: "+";
+	font: 12px monospace;
+	border: 1px solid #458;
+	line-height: 11px;
+	height: 11px;
+	width: 11px;
+	text-align: center;
+	border-radius: 50%;
+	margin-right: 4px;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+}
+#doc .item.open > .header::before {
+	content: "-";
+}
+#doc .item.empty > .header::before {
+	content: " "; /*"·"*/
+}
+#doc .header:hover {
+	border-left-color: #f3f3f3;
+	background: #f3f3f3;
+}
+#doc .header .ret-arrow {
+	font-weight: normal;
+	margin: 0 0.1em;
+}
+
+#doc a.broken {
+	color: red;
+}
+#doc p {
+	margin: 0;
+}
+#doc p + p, #doc p.pad {
+	margin-top: 0.5em;
+}
+#doc img {
+	max-width: 100%;
+}
+#doc h3 {
+	margin: 0.25em 0;
+	font-size: 125%;
+	font-weight: normal;
+	border-bottom: 1px solid #ccc;
+}
+
+#doc .content, #doc ul {
+	padding-left: 20px;
+	border-left: 2px solid #f3f3f3;
+}
+#doc .content {
+	padding-top: 0.25em;
+	padding-bottom: 0.5em;
+}
+#doc tt {
+	font-weight: bold;
+}
+#doc pre {
+	font-family: Consolas, Dejavu Sans Mono, Segoe UI Mono, Ubuntu Mono, Lucida Console, monospace;
+	font-size: 9pt;
+	line-height: 1.25;
+	background: white;
+	padding: 4px 2px 4px 10px;
+	margin: 0;
+	tab-size: 4;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+#doc pre a {
+	text-decoration: none;
+}
+#doc pre a.uf {
+	background-color: #f7f0ff;
+}
+#doc pre a.kw {
+	background-color: #f0f7ff;
+}
+#doc pre a.sf, #doc pre a.sv {
+	background-color: #fff3f0;
+}
+#doc pre a:hover {
+	text-decoration: underline;
+}
+#doc abbr[title] {
+	text-decoration: underline;
+	text-decoration-color: #bbb;
+	text-decoration-style: double;
+}
+#doc hr {
+	margin: 0.5em 0;
+	margin-right: 1em;
+	border: 0;
+	border-top: 2px dashed #f3f3f3;
+}
+#doc .item + hr {
+	margin: 0;
+	height: 1em;
+	border: 1px solid #f3f3f3;
+	border-width: 1px 0 1px 0;
+}
+#doc .item {
+	border-top: 1px solid #f3f3f3;
+	margin-top: 0.3em;
+}
+#doc .item:first-child {
+	margin-top: 0em;
+}
+#doc .item:last-child {
+	border-bottom: 1px solid #f3f3f3;
+}
+#doc .item + .item, #doc hr + .item {
+	border-top: 0;
+	margin-top: 0;
+}
+#doc .item + p {
+	border-top: 1px solid #f3f3f3;
+	padding-top: 0.3em;
+}
+/* delay display until load */
+#doc[ready] .item:not(.open) > .content {
+	display: none;
+}
+</style>
+<style type="text/css" id="md_gml">
+/* GameMakerLanguage */
+pre.gmlmd .md { color: #7A81A9 } /* #define */
+pre.gmlmd .kw { color: #008; font-weight: bold } /* keyword */
+pre.gmlmd .co { color: #080 } /* comment */
+pre.gmlmd .nu { color: #00f } /* number */
+pre.gmlmd .nx { color: #00f } /* hex */
+pre.gmlmd .st { color: #00f } /* string */
+pre.gmlmd .ts { color: #00f } /* template string */
+pre.gmlmd .op { color: #000 } /* operator */
+pre.gmlmd .cb { color: #008; font-weight: bold } /* curly brace */
+pre.gmlmd .sv { color: #800 } /* std func */
+pre.gmlmd .sf { color: #800 } /* std var */
+pre.gmlmd .ri { color: #0078aa } /* assets */
+pre.gmlmd .uf { color: #808 } /* user func */
+pre.gmlmd .uv { color: #000 } /* user var */
+pre.gmlmd .lv { color: #648 } /* local var */
+pre.gmlmd .fd { color: #804 } /* field */
+</style>
+<style type="text/css" id="night_css">
+#night { display: none }
+label[for="night"] {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#night:checked + .main {
+	background-color: #405070;
+}
+#night:checked + .main .page {
+	background-color: #1A202D;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	color: white;
+}
+#night:checked + .main a,
+#night:checked + .main a:visited,
+#night:checked + .main #doc .header,
+#night:checked + .main label[for="night"] {
+	color: #9DEC76;
+}
+#night:checked + .main #doc .header:before,
+#night:checked + .main #doc h3 {
+	border-color: #9DEC76
+}
+#night:checked + .main #doc .header,
+#night:checked + .main #doc .header:hover,
+#night:checked + .main #doc .content,
+#night:checked + .main #doc .item,
+#night:checked + .main #doc .item + p,
+#night:checked + .main #doc hr,
+#night:checked + .main #doc ul {
+	border-color: rgba(205,225,255,0.1);
+}
+#night:checked + .main #doc .header:hover,
+#night:checked + .main #doc .asset:hover {
+	background: rgba(205,225,255,0.1);
+}
+#night:checked + .main div ul li {
+	list-style-image: url('data:image/svg+xml;base256,<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="1em" viewBox="0 0 20px 1em"><circle cx="17px" cy="0.675em" r="2px" fill="white"/></svg>'); 
+}
+#night:checked + .main pre {
+	color: #cccccc;
+	background: #000000;
+	border: 1px solid #3E4757;
+}
+#night:checked + .main pre.gmlmd .op { color: #CCCCCC }
+#night:checked + .main pre.gmlmd .co { color: #5B995B }
+#night:checked + .main pre.gmlmd .kw { color: #FFB871 }
+#night:checked + .main pre.gmlmd .md { color: #FFB871 }
+#night:checked + .main pre.gmlmd .cb { color: #FFB871 }
+#night:checked + .main pre.gmlmd .sf { color: #FFB871 }
+#night:checked + .main pre.gmlmd .uf { color: #FFB871 }
+#night:checked + .main pre.gmlmd .nu { color: #FF8080 }
+#night:checked + .main pre.gmlmd .st { color: #FCF320 }
+#night:checked + .main pre.gmlmd .ts { color: #FF8080 }
+#night:checked + .main pre.gmlmd .sv { color: #FF8080 }
+#night:checked + .main pre.gmlmd .gv { color: #FF80FF }
+#night:checked + .main pre.gmlmd .ri { color: #FF8080 }
+#night:checked + .main pre.gmlmd .lv { color: #FFF899 }
+#night:checked + .main pre.gmlmd .uv { color: #B2B1FF }
+#night:checked + .main pre.gmlmd .fd { color: #B2B1FF }
+
+#night:checked + .main pre.gmlmd a.uf {
+	background-color: #431;
+}
+#night:checked + .main pre.gmlmd a.kw {
+	background-color: #431;
+}
+#night:checked + .main pre.gmlmd a.sf,
+#night:checked + .main pre.gmlmd a.sv {
+	background-color: #431;
+}
+</style>
+<style>
+.main.boxtt #doc tt {
+	display: inline-block;
+	background: #FFFBE4;
+	font-family: Consolas, Ubuntu Mono, Dejavu Sans Mono, Lucida Console, monospace;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 16px;
+	padding: 0 2px;
+	border: 1px solid #E6E0C4;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	max-width: 100%;
+	word-break: break-word;
+}
+#night:checked + .main.boxtt #doc tt {
+	background-color: #000;
+	border-color: #5b7c9f;
+	color: white;
+}
+</style>
+<style type="text/css" id="print_css">
+@media print {
+	.main { background-color: transparent }
+	.display-controls { display: none; }
+	.page { width: 100%; box-shadow: none; }
+	#doc .header::before,
+	#doc .item.open .header::before	{
+		content: "~";
+	}
+	#doc { display: inherit }
+	#doc .item:not(.open) > .content,
+	#doc[ready] .item:not(.open) > .content	{
+		display: inherit;
+	}
+}
+</style>
+<noscript><style>
+#doc .header::before {
+	content: "~";
+}
+#doc .header:hover {
+	border-left-color: #f3f3f3;
+	background: inherit;
+}
+#doc { display: inherit }
+#doc .item:not(.open) > .content {
+	display: inherit;
+}
+</style></noscript>
+</head><body>
+<input type="checkbox" id="night" checked/>
+<div class="main boxtt">
+<script type="text/javascript">
+(function() {
+	var night = document.getElementById("night");
+	var path = "docmd night mode";
+	var ls = window.localStorage;
+	if (ls) {
+		night.checked = ls.getItem(path) == "true";
+		night.onchange = function(_) {
+			ls.setItem(path, "" + night.checked);
+		};
+	}
+})();
+</script>
+<div class="page">
+<p>This is a "cheat sheet" for GOG.gml extension by YellowAfterlife.  <br/>
+The extension can be downloaded from <a href="https://yellowafterlife.itch.io/gog-gml">itch.io</a>.  <br/>
+Source code can be found on <a href="https://github.com/GameMakerDiscord/GOG.gml">GitHub</a>.  <br/>
+An up-to-date version of this document can always be found <a href="https://yal.cc/r/18/gog/">online</a>.</p><p class="display-controls">
+Click on sections to expand/collapse them.<br>Quick display controls: <a href="#" onclick="opt_none(); return false">Categories</a>
+&middot; <a href="#" onclick="opt_list(); return false">Sections</a>
+&middot; <a href="#" onclick="opt_all(); return false">Everything</a>
+&middot; <label for="night">Toggle night mode</label><br/>
+</p><div id="doc">
+<!--<doc--><div class="item"><a class="header" id="setup" href="#setup" title="(permalink)">Setting up and general notes</a><div class="content"><ul>
+	<li>	Import GOG.gml extension to your project.
+	</li><li>	Add a <a href="#gog_init">gog_init</a> call on game start with your game's ID and secret key.
+	</li><li>	Add a <a href="#gog_update">gog_update</a> call to a step event of a persistent object.
+	</li></ul><p>
+	Most API functions can be used once user is <a href="#gog_is_user_logged_on">logged in</a>;  <br/>
+	Stats/achievement functions require waiting for data <a href="#gog_stats_ready">to be ready</a>;  <br/>
+	Async events are dispatched as Async - Steam events with custom event types;  <br/>
+	(GameMaker currently lacks support for custom events)  <br/>
+	Overlay shows up when the game is ran from GOG Galaxy client.
+	</p><p>
+	For convenience, function names largely follow the patterns defined by
+	GameMaker's built-in Steam API functions
+	(<a href="http://docs.yoyogames.com/source/dadiospice/002_reference/steam%20api/index.html">GMS1</a>,
+	<a href="http://docs2.yoyogames.com/source/_build/3_scripting/4_gml_reference/steam%20api/index.html">GMS2</a>), 
+	making the migration largely a matter of replacing "steam_" by "gog_" in function names or adding a conditional call to do either.
+</p></div></div><div class="item"><a class="header" id="general" href="#general" title="(permalink)">General functions</a><div class="content"><div class="item"><a class="header" id="gog_init" href="#gog_init" title="(permalink)">gog_init(client_id, client_secret)</a><div class="content"><p>
+		Initializes GOG Galaxy API and returns whether successful.
+		</p><p>
+		Client ID and client secret are issued to you by GOG.
+	</p></div></div><div class="item"><a class="header" id="gog_update" href="#gog_update" title="(permalink)">gog_update()</a><div class="content"><p>
+		Updates async events, file operations, and other things that API needs to work.
+		</p><p>
+		Should be called every frame.
+	</p></div></div><div class="item"><a class="header" id="gog_is_user_logged_on" href="#gog_is_user_logged_on" title="(permalink)">gog_is_user_logged_on()</a><div class="content"><p>
+		Returns whether the user is logged in via GOG Galaxy client.
+		</p><p>
+		It can take a few seconds for user to get logged in, so it may be a good idea to wait until this clear before calling other API functions.
+	</p></div></div><div class="item"><a class="header" id="gog_get_error" href="#gog_get_error" title="(permalink)">gog_get_error()</a><div class="content"><p>
+		Returns the (technical) name of the last error occurred, <tt>""</tt> if none.
+		</p><p>
+		The error is reset before any API call.
+	</p></div></div><div class="item"><a class="header" id="gog_get_error_text" href="#gog_get_error_text" title="(permalink)">gog_get_error_text()</a><div class="content"><p>
+		Returns the description of the last error occurred, <tt>""</tt> if none.
+		</p><p>
+		The error is reset before any API call.
+	</p></div></div></div></div><div class="item"><a class="header" id="user" href="#user" title="(permalink)">User functions</a><div class="content"><div class="item"><a class="header" id="gog_get_persona_name" href="#gog_get_persona_name" title="(permalink)">gog_get_persona_name()</a><div class="content"><p>
+		Returns the display/persona name of local player.
+	</p></div></div><div class="item"><a class="header" id="gog_get_user_galaxy_id" href="#gog_get_user_galaxy_id" title="(permalink)">gog_get_user_galaxy_id()</a><div class="content"><p>
+		Returns the local user's galaxy ID as a string (can be used with other functions here).
+	</p></div></div><div class="item"><a class="header" id="gog_get_user_persona_name" href="#gog_get_user_persona_name" title="(permalink)">gog_get_user_persona_name(galaxy_id)</a><div class="content"><p>
+		Returns the display/persona name of given user, or "" if it is not known (see <a href="#gog_request_user_info">gog_request_user_info</a>).
+	</p></div></div><div class="item"><a class="header" id="gog_get_user_avatar_url" href="#gog_get_user_avatar_url" title="(permalink)">gog_get_user_avatar_url(galaxy_id, avatar_size)</a><div class="content"><p>
+		Returns the avatar URL for the given user.
+		</p><p>
+		<tt>avatar_size</tt> can be one of the following:
+		</p><ul>
+		<li>	<tt>0</tt>: Small (32x32)
+		</li><li>	<tt>1</tt>: Medium (64x64)
+		</li><li>	<tt>2</tt>: Large (184x184)
+		</li></ul></div></div><div class="item"><a class="header" id="gog_request_user_info" href="#gog_request_user_info" title="(permalink)">gog_request_user_info(galaxy_id)</a><div class="content"><p>
+		Requests information about the given player to be loaded asynchronously.
+		</p><p>
+		You don't usually have to do this because information about friends and players inside leaderboards is fetched automatically.
+	</p></div></div><div class="item"><a class="header" id="Additional-user-events" href="#Additional-user-events" title="(permalink)">Additional user events</a><div class="content"><p>
+		The following are the async events dispatched automatically as API initializes, with according fields of <tt>async_load</tt>.
+		</p><p>
+		<strong>User auth</strong>: </p><ul>
+		<li>	<tt>event_type</tt>: will be set to <tt>"gog_user_auth"</tt>.
+		</li><li>	<tt>success</tt>: indicates whether auth succeeded.
+		</li><li>	<tt>reason</tt>: if failed, indicates reason of failure: </p><ul>
+			<li>	<tt>0</tt>: Unknown reason.
+			</li><li>	<tt>1</tt>: Galaxy Service is not installed or fails to start.
+			</li><li>	<tt>2</tt>: Galaxy Service is not signed in properly.
+			</li><li>	<tt>3</tt>: Unable to communicate with backend services.
+			</li><li>	<tt>4</tt>: User that is being signed in has no license for this application.
+			</li><li>	<tt>5</tt>: Unable to match client credentials (ID, secret) or user credentials (username, password).
+			</li><li>	<tt>6</tt>: Galaxy has not been initialized.
+			</li><li>	<tt>7</tt>: Unable to communicate with external service.
+			</li></ul><p>
+		</li></ul><p>
+		<strong>User stats</strong>: </p><ul>
+		<li>	<tt>event_type</tt>: will be set to <tt>"gog_user_stats"</tt>.
+		</li><li>	<tt>success</tt>: indicates whether stats were received.
+		</li></ul></div></div></div></div><div class="item"><a class="header" id="stats" href="#stats" title="(permalink)">Stats and achievements</a><div class="content"><div class="item"><a class="header" id="gog_stats_ready" href="#gog_stats_ready" title="(permalink)">gog_stats_ready()</a><div class="content"><p>
+		Returns whether the stats &amp; achievements API is ready to use (data has been received).
+	</p></div></div><div class="item"><a class="header" id="gog_stats_request" href="#gog_stats_request" title="(permalink)">gog_stats_request()</a><div class="content"><p>
+		Requests stats to be re-acquired from client.
+		</p><p>
+		<a href="#gog_stats_ready">gog_stats_ready</a> will return false until new data is ready.
+	</p></div></div><div class="item"><a class="header" id="gog_stats_submit" href="#gog_stats_submit" title="(permalink)">gog_stats_submit()</a><div class="content"><p>
+		Sends updated stats &amp; achievements back to client.
+		</p><p>
+		You don't usually have to do this manually unless using <a href="#gog_stats_auto_submit">gog_stats_auto_submit</a>.
+	</p></div></div><div class="item"><a class="header" id="gog_stats_auto_submit" href="#gog_stats_auto_submit" title="(permalink)">gog_stats_auto_submit(enable)</a><div class="content"><p>
+		By default, stats and achievements will auto-submit on changes.
+		</p><p>
+		If you are using them on large enough scale to cause issues,
+		you can use this function to disable auto-submission and call
+		<a href="#gog_stats_submit">gog_stats_submit</a> by yourself to submit once you have finished the local changes.
+	</p></div></div><div class="item"><a class="header" id="gog_set_achievement" href="#gog_set_achievement" title="(permalink)">gog_set_achievement(name)</a><div class="content"><p>
+		Acquires the specified achievement, returns whether successful.
+	</p></div></div><div class="item"><a class="header" id="gog_get_achievement" href="#gog_get_achievement" title="(permalink)">gog_get_achievement(name)</a><div class="content"><p>
+		Returns whether the specified achievement is already acquired.
+		</p><p>
+		Returns -1 in case of error (e.g. wrong achievement name / not logged in).
+	</p></div></div><div class="item"><a class="header" id="gog_get_stat_int" href="#gog_get_stat_int" title="(permalink)">gog_get_stat_int(name)</a><div class="content"><p>
+		Retrieves a value of a signed 32-bit integer stat.
+	</p></div></div><div class="item"><a class="header" id="gog_set_stat_int" href="#gog_set_stat_int" title="(permalink)">gog_set_stat_int(name, value)</a><div class="content"><p>
+		Updates a value of a signed 32-bit integer stat.
+		</p><p>
+		Returns whether successful.
+	</p></div></div><div class="item"><a class="header" id="gog_get_stat_float" href="#gog_get_stat_float" title="(permalink)">gog_get_stat_float(name)</a><div class="content"><p>
+		Returns a value of a 32-bit floating point stat.
+	</p></div></div><div class="item"><a class="header" id="gog_set_stat_float" href="#gog_set_stat_float" title="(permalink)">gog_set_stat_float(name, value)</a><div class="content"><p>
+		Updates a value of a 32-bit floating point stat.
+	</p></div></div></div></div><div class="item"><a class="header" id="leaderboards" href="#leaderboards" title="(permalink)">Leaderboards</a><div class="content"><div class="item"><a class="header" id="gog_create_leaderboard" href="#gog_create_leaderboard" title="(permalink)">gog_create_leaderboard(lb_name, display_name, sort_method, display_type)</a><div class="content"><p>
+		Creates or finds a leaderboard with specified name.
+		</p><p>
+		<tt>sort_method</tt> determines how leaderboard entries will sorted (if it is created) and can be one of the following: </p><ul>
+		<li>	<tt>lb_sort_none</tt>: No sorting method specified.
+		</li><li>	<tt>lb_sort_ascending</tt>: Top score is the lowest number.
+		</li><li>	<tt>lb_sort_descending</tt>: Top score is the highest number.
+		</li></ul><p class="pad">
+		
+		<tt>display_type</tt> determines how leaderboard entries are displayed in client: </p><ul>
+		<li>	<tt>lb_disp_none</tt>: No display method specified.
+		</li><li>	<tt>lb_disp_numeric</tt>: Display scores as numbers.
+		</li><li>	<tt>lb_disp_time_sec</tt>: Display scores as time in seconds.
+		</li><li>	<tt>lb_disp_time_ms</tt>: Display scores as time in milliseconds.
+		</li></ul><p class="pad">
+		
+		Unlike a similar Steam function, the operation is asynchronous and dispatches an async event when completed. <tt>async_load</tt> will contain the following fields: </p><ul>
+		<li>	<tt>event_type</tt>: set to <tt>"gog_leaderboard_retrieve"</tt>.
+		</li><li>	<tt>lb_name</tt>: name of the requested leaderboard (first parameter in the function).
+		</li><li>	<tt>success</tt>: whether the request succeeded.
+		</li><li>	<tt>result</tt>: 1 if succeeded, anything else on failure.
+		</li></ul><p class="pad">
+		
+		Returns whether the async operation started (no early error).
+	</p></div></div><div class="item"><a class="header" id="gog_get_leaderboard_display_name" href="#gog_get_leaderboard_display_name" title="(permalink)">gog_get_leaderboard_display_name(lb_name)</a><div class="content"><p>
+		Returns the display name of specified leaderboard.
+		The leaderboard must be previously retrieved via <a href="#gog_create_leaderboard">gog_create_leaderboard</a>.
+		</p><p>
+		Returns <tt>""</tt> in case of error.
+	</p></div></div><div class="item"><a class="header" id="gog_upload_score" href="#gog_upload_score" title="(permalink)">gog_upload_score(lb_name, score, force_update)</a><div class="content"><p>
+		Submits a score to a specified leaderboard.
+		The leaderboard must be previously retrieved via <a href="#gog_create_leaderboard">gog_create_leaderboard</a>.
+		</p><p>
+		If <tt>force_update</tt> is set, the score overrides the previous one (if any).
+		</p><p>
+		Otherwise the score is only accepted if it is better (as per leaderboard's sorting method) than the previous one (or if there's none).
+		</p><p>
+		The operation is asynchronous and dispatches an async event when completed. <tt>async_load</tt> will contain the following fields: </p><ul>
+		<li>	<tt>event_type</tt>: set to <tt>"gog_leaderboard_upload"</tt>.
+		</li><li>	<tt>lb_name</tt>: name of the leaderboard in question.
+		</li><li>	<tt>score</tt>: current score.
+		</li><li>	<tt>success</tt>: whether the request succeeded
+			(note: if <tt>force_update</tt> is false and score isn't better, request "fails")
+		</li><li>	<tt>result</tt>: 1 if successful, anything else on failure.
+		</li><li>	<tt>old_rank</tt>: If successful, stores the previous rank (position in leaderboard).
+		</li><li>	<tt>new_rank</tt>: If successful, stores the new rank (position in leaderboard).
+		</li><li>	<tt>reason</tt>: If failed, stores the numeric failure code, </p><ul>
+			<li>	<tt>0</tt>: unspecified error
+			</li><li>	<tt>1</tt>: previous score was better and the update operation was not forced.
+			</li></ul><p>
+		</li></ul><p class="pad">
+		
+		Returns whether the async operation started (no early error).
+	</p></div></div><div class="item"><a class="header" id="gog_download_scores" href="#gog_download_scores" title="(permalink)">gog_download_scores(lb_name, start_pos, end_pos)</a><div class="content"><p>
+		Fetches a number of entries from the specified leaderboard.
+		The leaderboard must be previously retrieved via <a href="#gog_create_leaderboard">gog_create_leaderboard</a>.
+		</p><p>
+		Positions start at 1. End position is inclusive, so to fetch first 10 items you could do
+		</p><pre class="gmlmd">
+<span class="sf">gog_download_scores</span><span class="op">(</span><span class="st">"best_winners"</span><span class="op">,</span> <span class="nu">1</span><span class="op">,</span> <span class="nu">10</span><span class="op">)</span><span class="op">;</span>
+</pre><p>The operation is asynchronous and dispatches an async event when completed. <tt>async_load</tt> will contain the following fields: </p><ul>
+		<li>	<tt>event_type</tt>: set to <tt>"gog_leaderboard_download"</tt>.
+		</li><li>	<tt>lb_name</tt>: name of the leaderboard in question.
+		</li><li>	<tt>success</tt>: whether the request succeeded.
+		</li><li>	<tt>result</tt>: 1 if successful, anything else on failure.
+		</li><li>	<tt>numEntries</tt>: number of entries received.
+		</li><li>	<tt>entries</tt>: if successful, contains a string with JSON data for entries, such as
+			</p><pre>
+{ "entries": [
+  { "user": "194040212412504931", "name": "GalaxyTest", "score": 2, "rank": 1 },
+  { "user": "191102906021773312", "name": "YellowAfterlife", "score": 1, "rank": 2 }
+] }
+</pre><p>where per-entry fields are as following: </p><ul>
+			<li>	<tt>user</tt>: GOG user ID (including bit flags) as a string.
+			</li><li>	<tt>name</tt>: User's display/persona name.
+			</li><li>	<tt>rank</tt>: User's rank (1 for first place).
+			</li><li>	<tt>score</tt>: User's score.
+			</li></ul><p>
+		</li></ul><p>
+		Returns whether the async operation started (no early error).
+		</p><p>
+		For example, if you wanted to fill out a number of <tt>leaderboard_</tt> variables when the scores are received, you could add the following code to Async - Steam event:
+		</p><pre class="gmlmd">
+<span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"event_type"</span><span class="op">]</span> <span class="op">==</span> <span class="st">"gog_leaderboard_download"</span><span class="op">)</span> <span class="cb">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"success"</span><span class="op">]</span><span class="op">)</span> <span class="cb">{</span>
+        <span class="kw">var</span> <span class="lv">entries_map</span> <span class="op">=</span> <span class="sf">json_decode</span><span class="op">(</span><span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"entries"</span><span class="op">]</span><span class="op">)</span><span class="op">;</span>
+        <span class="kw">var</span> <span class="lv">entries_list</span> <span class="op">=</span> <span class="lv">entries_map</span><span class="op">[</span><span class="op">?</span><span class="st">"entries"</span><span class="op">]</span><span class="op">;</span>
+        <span class="uv">leaderboard_count</span> <span class="op">=</span> <span class="sv">async_load</span><span class="op">[</span><span class="op">?</span><span class="st">"numEntries"</span><span class="op">]</span><span class="op">;</span>
+        <span class="co">// in old versions of GMS you'd instead do</span>
+        <span class="co">// if (leaderboard_count &gt; 0) leaderboard_rank[leaderboard_count - 1] = 0;</span>
+        <span class="uv">leaderboard_rank</span> <span class="op">=</span> <span class="sf">array_create</span><span class="op">(</span><span class="uv">leaderboard_count</span><span class="op">)</span><span class="op">;</span>
+        <span class="uv">leaderboard_score</span> <span class="op">=</span> <span class="sf">array_create</span><span class="op">(</span><span class="uv">leaderboard_count</span><span class="op">)</span><span class="op">;</span>
+        <span class="uv">leaderboard_name</span> <span class="op">=</span> <span class="sf">array_create</span><span class="op">(</span><span class="uv">leaderboard_count</span><span class="op">)</span><span class="op">;</span>
+        <span class="kw">for</span> <span class="op">(</span><span class="kw">var</span> <span class="lv">i</span> <span class="op">=</span> <span class="nu">0</span><span class="op">;</span> <span class="lv">i</span> <span class="op">&lt;</span> <span class="uv">leaderboard_count</span><span class="op">;</span> <span class="lv">i</span><span class="op">++</span><span class="op">)</span> <span class="cb">{</span>
+            <span class="kw">var</span> <span class="lv">entry</span> <span class="op">=</span> <span class="lv">entries_list</span><span class="op">[</span><span class="op">|</span><span class="lv">i</span><span class="op">]</span><span class="op">;</span>
+            <span class="uv">leaderboard_rank</span><span class="op">[</span><span class="lv">i</span><span class="op">]</span> <span class="op">=</span> <span class="lv">entry</span><span class="op">[</span><span class="op">?</span><span class="st">"rank"</span><span class="op">]</span><span class="op">;</span>
+            <span class="uv">leaderboard_score</span><span class="op">[</span><span class="lv">i</span><span class="op">]</span> <span class="op">=</span> <span class="lv">entry</span><span class="op">[</span><span class="op">?</span><span class="st">"score"</span><span class="op">]</span><span class="op">;</span>
+            <span class="uv">leaderboard_name</span><span class="op">[</span><span class="lv">i</span><span class="op">]</span> <span class="op">=</span> <span class="lv">entry</span><span class="op">[</span><span class="op">?</span><span class="st">"name"</span><span class="op">]</span><span class="op">;</span>
+        <span class="cb">}</span>
+        <span class="sf">ds_map_destroy</span><span class="op">(</span><span class="lv">entries_map</span><span class="op">)</span><span class="op">;</span>
+        <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Got "</span> <span class="op">+</span> <span class="sf">string</span><span class="op">(</span><span class="uv">leaderboard_count</span><span class="op">)</span> <span class="op">+</span> <span class="st">" entries."</span><span class="op">)</span><span class="op">;</span>
+    <span class="cb">}</span> <span class="kw">else</span> <span class="cb">{</span>
+        <span class="sf">show_debug_message</span><span class="op">(</span><span class="st">"Failed to fetch entries."</span><span class="op">)</span><span class="op">;</span>
+    <span class="cb">}</span>
+<span class="cb">}</span>
+</pre></div></div><div class="item"><a class="header" id="gog_download_scores_around_user" href="#gog_download_scores_around_user" title="(permalink)">gog_download_scores_around_user(lb_name, range_start, range_end)</a><div class="content"><p>
+		Much like <a href="#gog_download_scores">gog_download_scores</a>, but fetches scores relative to current user's score.
+		</p><p>
+		So, to fetch 2 positions before the user's score and 3 positions after, you could do
+		</p><pre class="gmlmd">
+<span class="sf">gog_download_scores_around_user</span><span class="op">(</span><span class="st">"best_winners"</span><span class="op">,</span> <span class="op">-</span><span class="nu">2</span><span class="op">,</span> <span class="nu">3</span><span class="op">)</span><span class="op">;</span>
+</pre></div></div><div class="item"><a class="header" id="gog_download_friends_scores" href="#gog_download_friends_scores" title="(permalink)">gog_download_friends_scores(lb_name)</a><div class="content"><p>
+		Much like <a href="#gog_download_scores">gog_download_scores</a>, but fetches scores of the current user and people on their friends-list.
+	</p></div></div></div></div><!--doc>-->
+</div></div></div>
+<script>(function() {
+var doc, headers;
+//
+var path = "GOG.gml cheat sheet";
+var state = null;
+if (window.localStorage && JSON.parse) {
+	state = window.localStorage.getItem(path);
+	state = state ? JSON.parse(state) : { };
+	if (state == null) state = { };
+}
+var isLocal = (location.host.indexOf("localhost") == 0);
+//
+function h3bind(h3) {
+	var node = h3.parentNode;
+	var snip = node.children[1];
+	var id = h3.id || h3.textContent;
+	h3.snip = snip;
+	h3.doc_set = function(z) {
+		if (z) node.classList.add("open"); else node.classList.remove("open");
+		if (state) {
+			state[id] = z;
+			window.localStorage.setItem(path, JSON.stringify(state));
+		}
+	}
+	h3.doc_hide = function() {
+		this.doc_set(false);
+	}
+	h3.doc_show = function() {
+		this.doc_set(true);
+	}
+	h3.onclick = function(_) {
+		var seen = !node.classList.contains("open");
+		h3.doc_set(seen);
+		return false;
+	};
+}
+function getHashFunc(id) {
+	var node = document.getElementById(id);
+	if (node == null) return null;
+	return function(e) {
+		while (node && node != doc) {
+			if (node.classList.contains("item")) {
+				node.classList.add("open");
+			}
+			node = node.parentElement;
+		}
+	};
+}
+// Display helpers:
+window.opt_none = function() {
+	for (var li = 0; li < headers.length; li++) headers[li].doc_hide();
+};
+window.opt_list = function() {
+	for (var li = 0; li < headers.length; li++) {
+		var h3 = headers[li];
+		if (h3.parentNode.parentNode != doc) {
+			h3.doc_hide();
+		} else h3.doc_show();
+	}
+};
+window.opt_all = function() {
+	for (var li = 0; li < headers.length; li++) headers[li].doc_show();
+};
+window.live_post = function() {
+	doc = document.getElementById("doc");
+	headers = doc.getElementsByClassName("header");
+	//
+	for (var i = 0; i < headers.length; i++) h3bind(headers[i]);
+	// Clicks in document expand the related section:
+	var anchors = doc.getElementsByTagName("a");
+	for (var i = 0; i < anchors.length; i++) {
+		var anchor = anchors[i];
+		if (anchor.classList.contains("header")) continue;
+		var href = anchor.getAttribute("href");
+		if (href[0] == "#") {
+			var fn = getHashFunc(href.substr(1));
+			if (!fn) {
+				anchor.classList.add("broken");
+				anchor.title = "(section missing)";
+			} else anchor.addEventListener("click", fn);
+		}
+	}
+	//
+	for (var li = 0; li < headers.length; li++) {
+		var h3 = headers[li];
+		var val = state ? state[h3.id || h3.textContent] : null;
+		if (val == null) val = isLocal || h3.parentNode.parentNode == doc;
+		if (val) h3.doc_show(); else h3.doc_hide();
+	}
+};
+window.live_post();
+//
+(function() {
+	var hash = document.location.hash;
+	if (hash) {
+		var _hash = hash.substr(1);
+		getHashFunc(_hash)();
+		setTimeout(function() {
+			document.location.hash = hash + " ";
+			setTimeout(function() {
+				document.location.hash = hash;
+			}, 100);
+		}, 100);
+	}
+})();
+//
+doc.setAttribute("ready", "");
+})();
+</script>
+</body></html>

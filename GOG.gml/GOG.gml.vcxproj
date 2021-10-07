@@ -97,27 +97,7 @@
       <AdditionalDependencies>Galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
-copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG.gml.gml" "$(SolutionDir)GOG.gml.gmx\extensions\GOG.gml\GOG.gml.gml"
-
-cmd /C echo Combining source files...
-type $(ProjectDir)gog_*.h $(ProjectDir)gog_*.cpp &gt; "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
-copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
-
-cmd /C echo Copying files...
-copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
-copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
-
-copy /y "$(TargetPath)" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(TargetFileName)"
-copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)GOG_yy\extensions\GOG_gml\Galaxy.dll"
-
-cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG.gml.gmx\datafiles\$(AssemblyName).html"
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG_yy\datafiles\$(AssemblyName).html"
-
-cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gmxgen/)
-cmd /C gmxgen "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName).extension.gmx"
-cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -131,7 +111,11 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -155,27 +139,7 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
       <AdditionalDependencies>Galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>cmd /C echo Copying GML from GMS2 project to GMS1...
-copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG.gml.gml" "$(SolutionDir)GOG.gml.gmx\extensions\GOG.gml\GOG.gml.gml"
-
-cmd /C echo Combining source files...
-type $(ProjectDir)gog_*.h $(ProjectDir)gog_*.cpp &gt; "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp"
-copy /y "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(AssemblyName).cpp" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(AssemblyName).cpp"
-
-cmd /C echo Copying files...
-copy /y "$(TargetPath)" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\$(TargetFileName)"
-copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName)\Galaxy.dll"
-
-copy /y "$(TargetPath)" "$(SolutionDir)GOG_yy\extensions\GOG_gml\$(TargetFileName)"
-copy /y "$(SolutionDir)GOG\Libraries\Galaxy.dll" "$(SolutionDir)GOG_yy\extensions\GOG_gml\Galaxy.dll"
-
-cmd /C echo Copying documentation from export/ to projects
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG.gml.gmx\datafiles\$(AssemblyName).html"
-copy /y "$(SolutionDir)export\$(AssemblyName).html" "$(SolutionDir)GOG_yy\datafiles\$(AssemblyName).html"
-
-cmd /C echo Running gmxgen to update extensions (https://bitbucket.org/yal_cc/gmxgen/)
-cmd /C gmxgen "$(SolutionDir)$(AssemblyName).gmx\extensions\$(AssemblyName).extension.gmx"
-cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -193,7 +157,12 @@ cmd /C gmxgen "$(SolutionDir)GOG_yy\extensions\GOG_gml\GOG_gml.yy"</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Galaxy.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./../GOG/Libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>cmd /C postBuild.bat "$(TargetPath)" "$(SolutionDir)" "$(ProjectDir)" "$(PlatformTarget)" "$(ConfigurationName)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="gog_shared.h" />

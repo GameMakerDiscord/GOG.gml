@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "358333f1-186e-4c31-ad03-79ec81af0862",
+            "Value": {
+                "id": "b0dc3e22-f1e7-4b46-9e24-a23e271926b5",
+                "resourcePath": "extensions\\GOG_gml\\GOG_gml.yy",
+                "resourceType": "GMExtension"
+            }
+        },
+        {
             "Key": "35ad8b01-f367-49ff-bd8c-3ef77d617927",
             "Value": {
                 "id": "20610dec-9009-4dfe-b5b6-dab932deba78",
@@ -260,14 +268,6 @@
                 "id": "fd00267b-a58c-4881-a45d-a0305ee11ecb",
                 "resourcePath": "views\\f1d3565d-f6be-45fb-aced-db82ff3b62b7.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "f367224f-8d1a-4a7d-ae71-c9707bbebdaa",
-            "Value": {
-                "id": "dde60578-651b-4eb2-a075-0c36abf4ffda",
-                "resourcePath": "extensions\\GOG_gml\\GOG_gml.yy",
-                "resourceType": "GMExtension"
             }
         },
         {

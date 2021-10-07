@@ -1,5 +1,5 @@
 {
-    "id": "47f6fdd8-8c0a-49f4-9b09-302b3ae3b808",
+    "id": "358333f1-186e-4c31-ad03-79ec81af0862",
     "modelName": "GMExtension",
     "mvc": "1.2",
     "name": "GOG_gml",
@@ -539,21 +539,6 @@
                     "kind": 1,
                     "name": "gog_get_app_language",
                     "returnType": 1
-                },
-                {
-                    "id": "9c624788-be91-420e-b9fb-abe440d9d1c9",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "gog_stats_request",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "gog_stats_request",
-                    "returnType": 2
                 },
                 {
                     "id": "7114eaaf-d5aa-80f4-8f80-63aae699646d",
@@ -1236,24 +1221,6 @@
                     "hidden": false,
                     "kind": 1,
                     "name": "gog_network_request_nat_type",
-                    "returnType": 2
-                },
-                {
-                    "id": "fd8dd19d-c7eb-456d-a19e-d2a42ae66c30",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 4,
-                    "args": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "externalName": "RegisterCallbacks",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "RegisterCallbacks",
                     "returnType": 2
                 },
                 {
@@ -2514,21 +2481,6 @@
                     "returnType": 1
                 },
                 {
-                    "id": "a520c2c4-39a6-4317-8cc6-ce2056ba44d3",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 0,
-                    "args": [
-                        
-                    ],
-                    "externalName": "gog_stats_request",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "gog_stats_request",
-                    "returnType": 2
-                },
-                {
                     "id": "eb13a2c9-3aba-f132-3901-24c16b5d668d",
                     "modelName": "GMExtensionFunction",
                     "mvc": "1.0",
@@ -3209,24 +3161,6 @@
                     "hidden": false,
                     "kind": 1,
                     "name": "gog_network_request_nat_type",
-                    "returnType": 2
-                },
-                {
-                    "id": "11dc3602-236c-48fc-b229-dbca5c60b3ab",
-                    "modelName": "GMExtensionFunction",
-                    "mvc": "1.0",
-                    "argCount": 4,
-                    "args": [
-                        1,
-                        1,
-                        1,
-                        1
-                    ],
-                    "externalName": "RegisterCallbacks",
-                    "help": "",
-                    "hidden": true,
-                    "kind": 11,
-                    "name": "RegisterCallbacks",
                     "returnType": 2
                 },
                 {
