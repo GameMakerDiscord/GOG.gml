@@ -1,3 +1,5 @@
+**Note:** in GM2022+, this extension is superseded by the [official GOG extension](https://github.com/YoYoGames/GMEXT-GOG)
+
 Maintained by: YellowAfterlife
 
 This extension wraps GOG.com SDK for use in GameMaker: Studio and GameMaker Studio 2 games.
